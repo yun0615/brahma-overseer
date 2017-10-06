@@ -1,0 +1,138 @@
+<%- include('../_layout/admin_header'); %>
+        <link rel="stylesheet" href="/css/my.bootstrap-select.css">
+
+        <!-- Content start-->
+        <div id="page-wrapper">
+            <div class="row">
+                <!-- page-header -->
+                <div class="col-lg-12">
+                    <h1 class="page-header">App List</h1>
+                </div>
+            </div>
+
+            
+            <div class="row">
+                <!-- 搜尋框 -->
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <form method="get" id="searchApp" class="search-block" action="">
+                        <input type="text" class="search" placeholder="search..."/>
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+
+                <!-- 上傳按鈕 -->
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="rightBtn">
+                        <a href="/admin/upload_app" class="btn btn-info">
+                            <i class="fa fa-cloud-upload"></i> upload
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <!-- New Arrival -->
+                <div class="col-xlg-3 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="main_block">
+                        <!-- 標題 -->
+                        <div class="block-heading">
+                            <h2 class="block-title">New Arrival</h2>
+                        </div>
+                        
+                        <!-- 內容 -->
+                        <div class="block-content" id="newArea">
+                        <% for(var i=0; i<6; i++){ %>
+                            <div class="block">
+                                <div class="icon-block">
+                                    <img src="../img/app/game<%= i+1 %>.png">
+                                </div>
+                                <div class="text-block">
+                                    <div class="title"><span>app<%= i+1 %></span></div>
+                                    <div class="message"><span>class<%= i+1 %></span></div>
+                                </div>
+                            </div>
+                        <% } %>                          
+                        </div>
+                    </div>
+                </div>
+                <!------------------------------>
+
+                <!-- Class Apps -->
+                <div class="col-xlg-3 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="main_block">
+                        <!-- 標題 -->
+                        <div class="block-heading">
+                            <select class="selectpicker appClassPicker">
+                                <option value="game">Game</option>
+                                <option value="business">Business</option>
+                                <option value="news">News</option>
+                                <option value="design">Design</option>
+                                <option value="art">Art</option>
+                            </select>
+                        </div>
+
+                        <!-- 內容 -->
+                        <div class="block-content" id="show_classApp">
+                            <div id="classAppArea">
+
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+                <!------------------------------>
+                 
+
+            </div>
+            
+
+ 
+
+            </div>
+        </div>
+        <!-- End of Content -->
+
+    </div>
+    <!-- end of wrapper -->
+
+
+
+    <!-- jQuery -->
+    <script>
+
+
+
+
+
+    /*
+    //----------------------------------------
+    //    移入移出效果
+    //----------------------------------------
+    $(function(){
+        //appBox移入
+        $('div.appBox').mouseenter(function(){
+            $(this).children('img').css("filter","brightness(.8)"); 
+        });
+        //appBox移出
+        $('div.appBox').mouseleave(function(){
+            $(this).children('img').css("filter","brightness(1)");  
+        });
+        
+        //iconBox移入
+        $('div.iconBox').mouseenter(function(){
+            $(this).children('i').css("color","#666");  
+            $(this).children('span.title').css("color","#666"); 
+        });
+        //iconBox移出
+        $('div.iconBox').mouseleave(function(){
+            $(this).children('i').css("color","#333");  
+            $(this).children('span.title').css("color","#333"); 
+        });
+    });
+
+    */
+    </script>
+
+<%- include('../_layout/admin_footer'); %>
+<script src="/js/part/admin/js.app_list.js"></script>
+

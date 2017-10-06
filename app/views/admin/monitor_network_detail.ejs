@@ -1,0 +1,152 @@
+<%- include('../_layout/admin_header'); %>
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Network</h3>
+              </div>
+
+              <div class="title_right">
+
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+            
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Interface</h2>
+                    </div>
+                    <div class="x_content">
+                        <hr>
+                          <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+                            <div data-netdata="net.br0"
+                                data-chart-library="dygraph"
+                                data-height="200"
+                                data-after="-600"
+                                ></div>
+                          </div>
+
+                        <hr>
+                          <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+                            <div data-netdata="net_packets.br0"
+                                data-chart-library="dygraph"
+                                data-height="200"
+                                data-after="-600"
+                                ></div>
+                          </div>
+                  </div>
+                </div>
+              </div>           
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                    <div class="x_title">
+                        <h2>TCP</h2>
+                    </div>
+                    <div class="x_content">
+                        <hr>
+                          <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+                            <div data-netdata="ipv4.tcpsock"
+                                data-chart-library="dygraph"
+                                data-height="200"
+                                data-after="-600"
+                                ></div>
+                          </div>
+                        <hr>
+                          <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+                            <div data-netdata="ipv4.tcppackets"
+                                data-chart-library="dygraph"
+                                data-height="200"
+                                data-after="-600"
+                                ></div>
+                          </div>
+                        <hr>
+                          <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+                            <div data-netdata="ipv4.tcperrors"
+                                data-chart-library="dygraph"
+                                data-height="200"
+                                data-after="-600"
+                                ></div>
+                          </div>
+                        <hr>
+                          <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+                            <div data-netdata="ipv4.tcphandshake"
+                                data-chart-library="dygraph"
+                                data-height="200"
+                                data-after="-600"
+                                ></div>
+                          </div>
+                  </div>
+                </div>
+              </div>           
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                    <div class="x_title">
+                        <h2>UDP</h2>
+                    </div>
+                    <div class="x_content">
+                        <hr>
+                          <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+                            <div data-netdata="ipv4.udppackets"
+                                data-chart-library="dygraph"
+                                data-height="200"
+                                data-after="-600"
+                                ></div>
+                          </div>
+                        <hr>
+                          <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+                            <div data-netdata="ipv4.udppackets"
+                                data-chart-library="dygraph"
+                                data-height="200"
+                                data-after="-600"
+                                ></div>
+                          </div>
+                  </div>
+                </div>
+              </div>           
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Packets</h2>
+                    </div>
+                    <div class="x_content">
+                        <hr>
+                          <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+                            <div data-netdata="ipv4.packets"
+                                data-chart-library="dygraph"
+                                data-height="200"
+                                data-after="-600"
+                                ></div>
+                          </div>
+                  </div>
+                </div>
+              </div>           
+            </div>
+            
+<!-- load the dashboard manager - it will do the rest -->
+<script type="text/javascript" src="dashboard.js?v20161011-1"></script>
+
+        </div>
+    </div>
+    <!-- /page content -->
+
+<%- include('../_layout/admin_footer'); %>
+
+<script>
+    $(".x_panel").css("background-color","rgba(255,255,255,0.5)");
+    $(".x_title h2").css("color","#222");
+</script>

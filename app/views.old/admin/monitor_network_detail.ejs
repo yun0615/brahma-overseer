@@ -1,0 +1,101 @@
+<%- include('../_layout/admin_header'); %>
+    
+
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Network</h1>
+                </div>
+            </div>
+
+<h1>Interface</h1>
+<hr>
+  <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+    <div data-netdata="net.br0"
+        data-chart-library="dygraph"
+        data-height="200"
+        data-after="-600"
+        ></div>
+  </div>
+
+<hr>
+  <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+    <div data-netdata="net_packets.br0"
+        data-chart-library="dygraph"
+        data-height="200"
+        data-after="-600"
+        ></div>
+  </div>
+
+<h1>TCP</h1>
+<hr>
+  <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+    <div data-netdata="ipv4.tcpsock"
+        data-chart-library="dygraph"
+        data-height="200"
+        data-after="-600"
+        ></div>
+  </div>
+<hr>
+  <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+    <div data-netdata="ipv4.tcppackets"
+        data-chart-library="dygraph"
+        data-height="200"
+        data-after="-600"
+        ></div>
+  </div>
+<hr>
+  <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+    <div data-netdata="ipv4.tcperrors"
+        data-chart-library="dygraph"
+        data-height="200"
+        data-after="-600"
+        ></div>
+  </div>
+<hr>
+  <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+    <div data-netdata="ipv4.tcphandshake"
+        data-chart-library="dygraph"
+        data-height="200"
+        data-after="-600"
+        ></div>
+  </div>
+
+<h1>UDP</h1>
+<hr>
+  <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+    <div data-netdata="ipv4.udppackets"
+        data-chart-library="dygraph"
+        data-height="200"
+        data-after="-600"
+        ></div>
+  </div>
+<hr>
+  <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+    <div data-netdata="ipv4.udppackets"
+        data-chart-library="dygraph"
+        data-height="200"
+        data-after="-600"
+        ></div>
+  </div>
+
+<h1>Packets</h1>
+<hr>
+  <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+    <div data-netdata="ipv4.packets"
+        data-chart-library="dygraph"
+        data-height="200"
+        data-after="-600"
+        ></div>
+  </div>
+
+<!-- load the dashboard manager - it will do the rest -->
+<script type="text/javascript" src="dashboard.js?v20161011-1"></script>
+<!--
+-->
+  </div>
+  <!-- end of wrapper -->
+    
+<%- include('../_layout/admin_footer'); %>
+

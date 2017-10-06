@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ITRI Brahma | Sign up</title>
+    
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+
+    <!-- MetisMenu CSS -->
+    <link rel="stylesheet" href="/lib/metisMenu/dist/metisMenu.min.css">
+
+    <!-- Timeline CSS -->
+    <link rel="stylesheet" href="/css/timeline.css">
+
+    <!-- sb-admin CSS -->
+    <link rel="stylesheet" href="/css/sb-admin-2.css">
+
+    <!-- Morris Charts CSS -->
+    <link rel="stylesheet" href="/lib/morrisjs/morris.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    
+    <!-- My custom CSS -->
+    <link rel="stylesheet" href="/css/myStyle.css">
+    
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- auth_box -->
+        <div class="auth_box">
+            <h1>Sign up</h1>
+            <a href="/" class="auth_link">Already have an account? Sign in!</a>
+            <form method="post" id="signupForm" class="signupForm" autocomplete="off">
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 col-xs-12 control-label">email</label>
+                    <div class="col-sm-9"><input type="text" name='email' placeholder="email" class="form-control" id="email" /></div>
+                </div>
+                <div class="form-group">
+                    <label for="username" class="col-sm-3 col-xs-12 control-label">username</label>
+                    <div class="col-sm-9"><input type="text" name='username' placeholder="username" class="form-control" id="username" /></div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-3 col-xs-12 control-label">password</label>
+                    <div class="col-sm-9"><input type="password" name='password' placeholder="password" class="form-control" id="password" /></div>
+                </div>
+                <div class="col-sm-12">
+                    <span id="hint" class="hint"><%= hint %></span>
+                </div>
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-auth">Sign up</button>
+                </div>
+            </form>
+        </div>
+    </div>  
+</body>
+</html>
+
+
+<!-- jquery -->
+<script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
+
+
+<script src="/js/plugin/jquery.validate.min.js"></script>
+<script src="/js/plugin/jquery.cookie.js"></script>
+<script src="/js/plugin/date.js"></script>
+
+<script src="/js/part/utility.js"></script>
+<script src="/js/part/js.auth.js"></script>

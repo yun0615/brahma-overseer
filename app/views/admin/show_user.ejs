@@ -1,0 +1,66 @@
+<%- include('../_layout/admin_header'); %>
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Users</h3>
+              </div>
+
+              <div class="title_right">
+
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="row">
+				<!-- 自動更新 toggleBtn -->
+				<div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+					<div class="switch-block">
+						<div class="switch-text">auto update</div>
+						<div class="switch-wrapper ">
+							<input type="checkbox" id="autoUpdateCkb" value="1">
+						</div>
+					</div>	
+				</div>
+
+				<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+					<div class="rightBtn">
+						<a href="/admin/create_user" class="btn btn-info">
+							<span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> New User
+						</a>
+					</div>
+				</div>
+			</div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                    	<div class="x_title">
+                        	<h2>User Data</h2>
+                    	</div>
+                    	<div class="x_content">
+                        	<div class="tableArea">
+						
+
+							</div>
+                    	</div>
+                    </div>
+                </div>
+              </div>           
+            </div>
+        </div>
+    </div>
+    <!-- page content -->
+
+	<%- include('../_layout/admin_footer'); %>
+	<script src="/js/part/admin/js.show_user.js"></script>
+
+	<script>
+		$(".x_panel").mCustomScrollbar({
+			axis:"x",
+			theme:"minimal",
+			advanced:{ autoExpandHorizontalScroll:true }
+		});
+
+		
+	</script>

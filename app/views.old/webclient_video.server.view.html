@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ITRI HTML5 Client</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/webclient.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+</head>
+<body>
+<div id="content">
+    <table style="margin-left:auto; margin-right:auto; text-align:center">
+        <tr><td colspan="2">
+            <video id="rtcvidstream" class="hide" autoplay></video>
+            <canvas id="touchcanvas" class="hide" style="border:2px solid black"></canvas>
+        </td></tr>
+        <tr><td colspan="2">
+            <div class="btn-group btn-group-justified btn-group-lg" style="table-layout:auto">
+                <a href="#" id="backButton" class="btn btn-default" style="width:33.3%" title="Back">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a href="#" id="homeButton" class="btn btn-default" style="width:33.3%" title="Home">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+                <a href="#" id="appSwitchButton" class="btn btn-default" style="width:33.3%" title="App Switch">
+                    <span class="glyphicon glyphicon-tasks"></span>
+                </a>
+            </div>
+        </td></tr>
+        <tr><td>
+            <br />
+            <label class="btn btn-toggle" for="keyboard-toggle">
+                <input type="checkbox" id="keyboard-toggle" />Soft Keyboard
+            </label>
+            </td><td>
+            <br />
+            <button id="logoutButton" type="button" class="btn btn-lg btn-danger">Log Out</button>
+        </td></tr>
+    </table>
+</div>
+<script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/js/webclient/deps/Long.min.js"></script>
+<script src="/js/webclient/deps/ByteBufferAB.min.js"></script>
+<script src="/js/webclient/deps/ProtoBuf.min.js"></script>
+<script src="/js/webclient/deps/RTCPeerConnection-v1.5.js"></script>
+<script src="/js/webclient/deps/jstz.min.js"></script>
+<script src="/js/webclient/deps/jquery.cookie.js"></script>
+<script src="/js/webclient/handlers.js"></script>
+<script src="/js/webclient/utility.js"></script>
+<script>
+    // validate browser to make sure it's supported, and set identifying variable in window
+    checkBrowser();
+
+    // check to make sure we have a session cookie
+    $.cookie.json = true;
+    window.svmpData = $.cookie("brahmaData");
+    if (!window.svmpData) {
+        alert("No session data found, please log in first.");
+        window.location.replace("/");
+    }
+    window.svmpState = "auth"; // state 1: authenticated
+    console.log('SVMP state: "auth"');
+
+    // logout button
+    $("#logoutButton").click(function() {
+        var result = confirm("Are you sure you want to log out and close your connection?");
+        if (result) {
+            $.removeCookie("brahmaData", {path: '/'});
+            window.location.replace("/");
+        }
+    });
+
+    window.isMobile = ($("#touchcanvas").css("position") == "absolute");
+
+    var protocol = "ws";
+    if (window.location.protocol === "https:")
+        protocol = "wss";
+    var url = protocol + "://" + window.svmpData.server.host + ":" + window.svmpData.server.port;
+    var ws = new WebSocket(url, window.svmpData.sessionInfo.token);
+    ws.binaryType = "arraybuffer";
+    var ProtoBuf = dcodeIO.ProtoBuf;
+    var builder = ProtoBuf.loadProtoFile("/data/svmp.proto");
+    var svmp = builder.build("svmp");
+
+    ws.onopen = function() {
+        console.log("ws opened");
+        window.svmpState = "connected"; // state 2: connected to the WebSocket
+        console.log('SVMP state: "auth" -> "connected"');
+    };
+
+    ws.onmessage = function(ev) {
+        var resBuilder = builder.build("svmp.Response");
+        var res = resBuilder.decode(ev.data);
+        handleResponse(res, ws, svmp);
+    };
+
+    ws.onclose = function(ev) {
+        var msg = "Socket has been closed, code: " + ev.code;
+
+        // no error messages are generated in "onerror", we have to guess...
+        if (ev.code === 1006 && protocol === "wss" && window.svmpState === "auth") {
+            msg += "\n"
+                    + "(If you're using a self-signed certificate, navigate to '"
+                    + "https://" + window.svmpData.server.host + ":" + window.svmpData.server.port
+                    + "' in a new tab, accept the certificate, and try again)";
+        }
+
+        alert(msg);
+        console.log(msg);
+    };
+
+    ws.onerror = function(ev) {
+        console.log("Socket encountered an error");
+    };
+
+    window.socket = ws;
+
+    //Render WebRTC video onto canvas rather than directly in <video> element so we can get touch events
+    var canvas            = document.getElementById("touchcanvas");
+    window.canvasctx    = canvas.getContext('2d');
+    var vid                = document.getElementById("rtcvidstream");
+
+    vid.addEventListener('play', function() {
+        this_ = this;
+        setTimeout(function drawloop() {
+            try {
+                window.canvasctx.drawImage(this_, 0, 0);
+            }
+            catch(ex) {
+                if(ex.name == "NS_ERROR_NOT_AVAILABLE") {
+                    setTimeout(drawloop, 0);
+                }
+                else {
+                    throw ex;
+                }
+            }
+            setTimeout(drawloop, 1000 / 60);
+        }, 0);
+    }, 0);
+
+    //Capture touch events
+    canvas.addEventListener("touchstart", function(ev) { handleTouchStart(ev, ws, svmp) }, false);
+    canvas.addEventListener("touchend", function(ev) { handleTouchEnd(ev, ws, svmp) }, false);
+    canvas.addEventListener("touchmove", function(ev) { handleTouchMove(ev, ws, svmp) }, false);
+    //Capture mouse events
+    canvas.addEventListener("mousedown", function(ev) { handleMouseStart(ev, ws, svmp) }, false);
+    canvas.addEventListener("mouseup", function(ev) { handleMouseEnd(ev, ws, svmp) }, false);
+    canvas.addEventListener("mousemove", function(ev) { handleMouseMove(ev, ws, svmp) }, false);
+    canvas.addEventListener("mouseout", function(ev) { handleMouseEnd(ev, ws, svmp) }, false);
+
+    // capture keyboard events
+    $(document).keydown(function(event) {
+        // keydown, NOT keypress, there is a difference
+        handleKeyDown(event, ws, svmp);
+    });
+    $(document).keyup(function(event) {
+        handleKeyUp(event, ws, svmp);
+    });
+
+    // set up Android button listeners
+    $("#backButton").click(function() {
+        androidKeyDownUp(4, ws, svmp);
+    });
+    $("#homeButton").click(function() {
+        androidKeyDownUp(3, ws, svmp);
+    });
+    $("#appSwitchButton").click(function() {
+        androidKeyDownUp(187, ws, svmp);
+    });
+
+    // soft keyboard button listener
+    $("#keyboard-toggle").click(function() {
+        sendKeyboardConfig(this.checked, ws, svmp);
+    });
+</script>
+
+</body>
+</html>
+              

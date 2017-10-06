@@ -1,0 +1,127 @@
+<div class="" data-ng-controller="HeaderController">
+    <nav class="navbar navbar-default navbar-custom navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-ng-click="toggleCollapsibleMenu()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/admin">ITRI Virtual Mobile Platform - Admin</a>
+        </div>
+
+
+        <div class="dropdown" style="float:right;">
+            <div class="dropbtn"><i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i></div>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#" id="changePswBtn"><i class="fa fa-pencil fa-fw"></i> &nbsp;change password</a>
+                <a href="#" id="logoutBtn"><i class="fa fa-sign-out fa-fw"></i> &nbsp;Logout</a>
+            </div>
+        </div>
+   
+        
+        <!-- Admin links -->
+        <!--<div class="navbar-default sidebar" role="navigation" data-ng-show="authentication.user.roles[0] === 'admin'">-->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                        </div>
+                    </li>
+
+                    <!-- left bar fucntion start-->
+                    <li ui-route="/admin/dashboard" ng-class="{active: $uiRoute}">
+                        <a href="/admin/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#" id="monitor_page"><i class="glyphicon glyphicon-scale"></i> Monitor<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li ui-route="/admin/monitor_cpu_detail" ng-class="{active: $uiRoute}">
+                                <a href="/admin/monitor_cpu_detail">CPU</a>
+                            </li>
+                            <li ui-route="/admin/monitor_memory_detail" ng-class="{active: $uiRoute}">
+                                <a href="/admin/monitor_memory_detail">Memory</a>
+                            </li>
+                            <li ui-route="/admin/monitor_network_detail" ng-class="{active: $uiRoute}">
+                                <a href="/admin/monitor_network_detail">Network</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" id="server_page"><i class="glyphicon glyphicon-hdd"></i> Server<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li ui-route="/admin/vmi_overseer_detail" ng-class="{active: $uiRoute}">
+                                <a href="/admin/vmi_overseer_detail">Brahma Authentication</a>
+                            </li>
+                            <li ui-route="/admin/vmi_server_detail" ng-class="{active: $uiRoute}">
+                                <a href="/admin/vmi_server_detail">Brahma Server</a>
+                            </li>
+                            <li ui-route="/admin/vmi_server_setting" ng-class="{active: $uiRoute}">
+                                <a href="/admin/vmi_server_setting">Setting</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" id="instance_page"><i class="glyphicon glyphicon-phone"></i> Android Instance<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li ui-route="/admin/vm" ng-class="{active: $uiRoute}">
+                                <a href="/admin/vm"> Virtual Machine</a>
+                            </li>
+                            <li ui-route="/admin/arm" ng-class="{active: $uiRoute}">
+                                <a href="/admin/arm"> ARM Cluster</a>
+                            </li>
+
+                        </ul>
+                    </li>
+<!--
+                    <li>
+                        <a href="/admin/vm"><i class="fa fa-dashboard fa-fw"></i> Virtual Machine</a>
+                    </li>
+                    <li>
+                        <a href="/admin/arm"><i class="fa fa-dashboard fa-fw"></i> ARM Cluster</a>
+                    </li>
+-->
+                    <li ui-route="/admin/show_user" ng-class="{active: $uiRoute}">
+                        <a href="/admin/show_user"><i class="glyphicon glyphicon-user"></i> User</a>
+                    </li>
+                     <li ui-route="/admin/show_log" ng-class="{active: $uiRoute}">
+                        <a href="/admin/show_log"><i class="glyphicon glyphicon-search"></i> Log</a>   
+                    </li>
+                    <li ui-route="/admin/app_list" ng-class="{active: $uiRoute}">
+                        <a href="/admin/app_list"><i class="fa fa-th-large"></i> App List</a>
+                    </li>
+                    
+                    <!-- end of left bar function-->
+                </ul>
+            </div>
+        </div>
+
+        <!-- User links -->
+        <ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="glyphicon glyphicon-user">&nbsp;{{authentication.user.email}}</i> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/#!/settings/profile">Account Status</a>
+                    </li>
+                    <li>
+                        <a href="/#!/settings/password">Change Password</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="/auth/signout">Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>

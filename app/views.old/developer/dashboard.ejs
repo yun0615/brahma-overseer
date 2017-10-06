@@ -1,0 +1,88 @@
+<%- include('../_layout/developer_header'); %>
+
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Dashboard</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="alert alert-warning" style="font-size:18px"><a href="" style="color:#a94442">You have 2 important notices.</a></div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-5 col-md-5">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Your Application
+                        </div>
+                        <div class="panel-body" id="app_panel_body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">
+                                    <img src="../../dist/img/line.png" alt="" style="width:10%"> Line
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <img src="../../dist/img/skype.png" alt="" style="width:10%"> Skype
+                                </a>
+                            </div>
+                            <a href="/developer/app" class="btn btn-default btn-block">View All App</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i> Notifications
+                        </div>
+                        <div class="panel-body" id="notify_panel_body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">
+                                    <img src="../../dist/img/information.png" style="width:5%"> The installation of Line is complete on Android_VM_04
+                                    <span class="pull-right text-muted small"><em>4 minutes ago</em></span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <img src="../../dist/img/error.png" style="width:5%"> The installation of Line is faild on Android_VM_09
+                                    <span class="pull-right text-muted small"><em>15 minutes ago</em></span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <img src="../../dist/img/information.png" style="width:5%"> The installation of Line is complete on Android_VM_01
+                                    <span class="pull-right text-muted small"><em>57 minutes ago</em></span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <img src="../../dist/img/information.png" style="width:5%"> Upload Skype successfully.
+                                    <span class="pull-right text-muted small"><em>43 minutes ago</em></span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <img src="../../dist/img/information.png" style="width:5%"> User Proces is using Line on Android_VM_10
+                                    <span class="pull-right text-muted small"><em>11:35 AM</em></span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <img src="../../dist/img/error.png" style="width:5%"> The installation of Line is faild on Android_VM_02
+                                    <span class="pull-right text-muted small"><em>11:13 AM</em></span>
+                                </a>
+                            </div>
+                            <a href="#" class="btn btn-default btn-block">View All Alerts</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- End of Content -->
+
+    </div>
+	<!-- end of wrapper -->
+
+
+    <!-- jQuery -->
+    <script type="text/javascript">
+        console.log($("#notify_panel_body").height());
+        $("#app_panel_body").css({
+            'height': $("#notify_panel_body").height() + 30
+        });
+    </script>
+
+<%- include('../_layout/developer_footer'); %>

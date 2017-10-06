@@ -1,0 +1,43 @@
+<table class="table" id="dataTables1">
+	<thead>
+		<tr class="tg">
+			<th>No.</th>
+			<th>username</th>
+			<th>Email</th>
+			<th>Approved</th>
+			<th>Role</th>
+			<th>Device_Type</th>
+			<th>Status</th>
+			<th>bandwidth</th>
+			<th>latency</th>
+			<th>Remove</th>
+		</tr>
+	</thead>	
+		<% var count = 1 ; %>
+	<tbody>
+		<% all_users_data.forEach(function(data){ %>
+			<tr>
+				<td><%=count++%></td>
+				<td><%=data.username%></td>
+				<td><%=data.email%></td>
+				<td>
+					<% if(data.approved == true){ %>
+						<font style="color:#10e814"><%=data.approved%></font>
+					<% }else{ %>
+						<font style="color:#fdafaf"><%=data.approved%></font>
+					<% }%>
+				</td>
+				<td><%=data.roles%></td>
+				<td><%=data.device_type%></td>
+				<td><%=data.Status%></td>
+				<td><%=data.bandwidth%></td>
+				<td><%=data.latency%></td>
+				<td class="center"><span class="glyphicon glyphicon-trash removeBtn" aria-hidden="true" onclick="$(this).delete_user('<%=data.username%>')"></span></td>
+			</tr>
+		<%  }); %>
+	</tbody>
+</table>
+
+<script>
+var table = $('#dataTables1').DataTable({stateSave: true,destory:true});
+</script>

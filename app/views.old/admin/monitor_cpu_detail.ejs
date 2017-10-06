@@ -1,0 +1,82 @@
+<%- include('../_layout/admin_header'); %>
+    
+
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">CPU</h1>
+                </div>
+            </div>
+
+
+<!-- 
+<div style="width: 33%; display: inline-block;">
+    <div style="display: inline-block; position: relative;">
+        <div data-netdata="system.cpu"
+            data-chart-library="easypiechart"
+            data-width="200"
+            data-height="200"
+            data-after="-300"
+            data-points="300"
+            data-dt-element-name="time603"
+            ></div>
+        <br/>
+    </div>
+-->
+<h1>Utilization</h1>
+<hr>
+  <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+    <div data-netdata="system.cpu"
+        data-chart-library="dygraph"
+        data-height="200"
+        data-after="-600"
+    ></div>
+  </div>
+<h1>Load</h1>
+<hr>
+  <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+    <div data-netdata="system.load"
+        data-chart-library="dygraph"
+        data-height="200"
+        data-after="-600"
+    ></div>
+  </div>
+
+<!--
+<hr>
+    <div data-netdata="apps.cpu"
+        data-chart-library="dygraph"
+        data-width="600"
+        data-height="200"
+        data-after="-600"
+        ></div>
+
+<hr>
+    <div data-netdata="users.cpu"
+        data-chart-library="dygraph"
+        data-width="600"
+        data-height="200"
+        data-after="-600"
+        ></div>
+
+<hr>
+    <div data-netdata="groups.cpu"
+        data-chart-library="dygraph"
+        data-width="600"
+        data-height="200"
+        data-after="-600"
+        ></div>
+
+ -->
+
+
+
+<!-- load the dashboard manager - it will do the rest -->
+<script type="text/javascript" src="dashboard.js?v20161011-1"></script>
+
+    </div>
+    <!-- end of wrapper -->
+    
+<%- include('../_layout/admin_footer'); %>
+

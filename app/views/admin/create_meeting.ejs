@@ -1,0 +1,80 @@
+<%- include('../_layout/admin_header'); %>
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3></h3>
+              </div>
+
+              <div class="title_right">
+
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+            
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>New Meeting Room</h2>
+                        </div>
+                        <div class="x_content">
+                            <form action="/admin/create_meeting" class="white" method="post" >
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-12 control-label">Meeting Name</label>
+                                    <div class="col-sm-10"><input type="text" name='meetingName' placeholder="Meeting Name" class="form-control" id="meetingName" /></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-12 control-label ">Host</label>
+                                    <div class="col-sm-10">
+                                        <select name="hostID" class="form-control" id="">
+                                            <% data.forEach(function(data){ %>
+                                                <option value="<%=data.username%>"><%=data.username%></option>
+                                            <% })  %>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-12 control-label">Period</label>
+                                    <div class="col-sm-10">
+
+                                        <div class="input-group date" id="daterangepicker1">
+                                            <input type="text" name="period" class="form-control" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                                                   
+                                
+                                <div class="col-sm-12 center">
+                                    <button type="submit" class="btn btn-info">Submit</button>
+                                    <a href="/admin/show_user" class="btn btn-default" style="margin-left:10px">Back</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+              </div>           
+            </div>
+        </div>
+    </div>
+    <!-- page content -->
+
+<%- include('../_layout/admin_footer'); %>
+
+<script type="text/javascript">
+$('input[name=period]').dateRangePicker({
+    autoClose: false,
+    format: 'YYYY-MM-DD',
+    separator: ' - ',
+    startDate: moment(new Date())
+});
+
+
+</script>

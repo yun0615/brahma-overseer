@@ -1,0 +1,38 @@
+<%- include('../_layout/admin_header'); %>
+
+
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Virtual Machine - Reset</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <form action="/admin/reset" method="post">
+                       <table>
+                            <tr>
+                                <td>IP：</td>
+                                <td><input type="text" name="ip" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">    
+                                    <input type="submit" class="btn btn-primary" value="Submit">
+                                    <a href="/admin/" class="btn btn-default" style="margin-left:10px">Back</a>
+                                </td>
+                            </tr>
+                        </table> 
+                    </form>
+
+            </div>  
+            
+        </div>
+        <!-- End of Content -->
+
+	</div>
+	<!-- end of wrapper -->
+
+	
+
+<%- include('../_layout/admin_footer'); %>

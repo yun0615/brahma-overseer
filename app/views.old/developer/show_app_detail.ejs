@@ -1,0 +1,347 @@
+<%- include('../_layout/developer_header'); %>
+
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>App - Line</h1>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:20px">
+                <ul class="nav nav-tabs" id="content_tab" role="tablist" style="font-size:18px">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" id="user_content_tab" data-toggle="tab">Authorizer</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" id="vm_content_tab" data-toggle="tab">Resources</a></li>
+                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" id="events_content_tab" data-toggle="tab">Events</a></li>
+                </ul>
+            </div>
+
+            <!-- User Authorize Content -->
+            <div id="user_content">
+                <div class="row">
+                    <h2 style="color:#6898d4">Department Authorize</h2>
+                </div>
+                <div class="row" style="margin:0px 20px 0px 0px">
+                    <a href="#" class="btn btn-default col-md-offset-7 col-lg-offset-7" style="font-size:18px">Edit</a>
+                </div>
+                <div class="row" style="margin-bottom:20px">
+                    <div class="col-md-8 col-lg-8">
+                        <table class="table table-striped" style="font-size:18px">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Department</th>
+                                    <th>Number of Peoples</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Human Resources Department</td>
+                                    <td>30</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>General Affairs Department</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Engineering Deparment</td>
+                                    <td>30</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Virtual Machine Authorize Content -->
+            <div id="vm_content">
+                <div class="row">
+                    <h2 style="color:#e25050">Average Resources</h2>
+                </div>
+                <div class="row" style="margin-top:20px;margin-bottom:20px">
+                    <table>
+                        <tr>
+                            <td class="col-md-5 col-lg-5">
+                                <!-- CPU Consume -->
+                                <h2 style="margin-bottom:20px">CPU</h2>
+                                <div id="cpu_consume" style="border:1px solid black;border-radius:5px;min-height:400px;"></div>
+                            </td>
+                            <td class="col-md-5 col-lg-5">
+                                <!-- Memory Consume -->
+                                <h2 style="margin-bottom:20px">Memory</h2>
+                                <div id="memory_consume" style="border:1px solid black;border-radius:5px;min-height:400px;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-5 col-lg-5">
+                                <!-- Network Consume -->
+                                <h2 style="margin-bottom:20px">Network</h2>
+                                <div id="network_consume" style="border:1px solid black;border-radius:5px;min-height:400px;"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Events Content -->
+            <div id="events_content">
+                <div class="row" style="margin:20px 0px 20px 0px">
+                    <span class="dropdown col-md-offset-3 col-lg-offset-3">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Filter
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Type</a></li>
+                            <li><a href="#">Time</a></li>
+                            <li><a href="#">Message</a></li>
+                        </ul>
+                    </span>
+                    <span>
+                        <input type="text" class="form-control" style="display:inline;width:20%">
+                    </span>
+                    <a href="" class="btn btn-default">Search</a>
+                </div>
+                <table class="table table-striped" style="font-size:18px">
+                    <thead>
+                        <th class="col-md-1 col-lg-1">Type</th>
+                        <th class="col-md-1 col-lg-1">Time</th>
+                        <th class="col-md-2 col-lg-2">Message</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="../../dist/img/error.png" style="width:10%">
+                                <font> Error</font>
+                            </td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>The Line has installation faild on Android 4.4.4 32 bits platform</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../dist/img/error.png" style="width:10%">
+                                <font> Error</font>
+                            </td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>The Line has installation faild on Android 5.0 64 bits platform</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- End of Content -->
+
+	</div>
+	<!-- end of wapper -->
+
+	
+
+    <!-- jQuery -->
+    <script>
+        $("#content_tab > li > a").click(function() {
+            $("div[id$=_content]").hide(); //所有id為_content為結尾的div全部隱藏
+
+            var choice = $(this).attr('id').split('_content_tab')[0]; //找出按了哪個button
+            $("#" + choice + "_content").show();
+        });
+        $("#user_content_tab").click();
+    </script>
+
+    <!-- table style -->
+    <style>
+        #table_upload> tbody>tr> td {
+            padding-bottom: 10px;
+        }
+        #select_user_tr> td {
+            padding-top: 30px;
+        }
+        #select_user_tr> td> ul {
+            min-height: 200px;
+        }
+        #select_user_tr> td> ul> li {
+            cursor: pointer;
+        }
+        #select_img_tr> td {
+            padding-top: 30px;
+        }
+        #select_img_tr> td> ul {
+            min-height: 200px;
+        }
+        #select_img_tr> td> ul> li {
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- pictures -->
+    <script>
+        $(function() {
+            // CPU Consume
+            $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function(data) {
+
+                $('#cpu_consume').highcharts({
+                    chart: {
+                        zoomType: 'x'
+                    },
+                    title: {
+                        text: 'CPU(%)'
+                    },
+                    xAxis: {
+                        type: 'datetime',
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Percentage'
+                        }
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        area: {
+                            fillColor: {
+                                linearGradient: {
+                                    x1: 0,
+                                    y1: 0,
+                                    x2: 0,
+                                    y2: 1
+                                },
+                                stops: [
+                                    [0, Highcharts.getOptions().colors[0]],
+                                    [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                                ]
+                            },
+                            marker: {
+                                radius: 2
+                            },
+                            lineWidth: 1,
+                            states: {
+                                hover: {
+                                    lineWidth: 1
+                                }
+                            },
+                            threshold: null
+                        }
+                    },
+                    series: [{
+                        type: 'area',
+                        name: 'USD to EUR',
+                        data: data
+                    }]
+                });
+            });
+
+            // Memory Consume
+            $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function(data) {
+
+                $('#memory_consume').highcharts({
+                    chart: {
+                        zoomType: 'x'
+                    },
+                    title: {
+                        text: 'Memory(MB)'
+                    },
+                    xAxis: {
+                        type: 'datetime'
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'MB'
+                        }
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        area: {
+                            fillColor: {
+                                linearGradient: {
+                                    x1: 0,
+                                    y1: 0,
+                                    x2: 0,
+                                    y2: 1
+                                },
+                                stops: [
+                                    [0, Highcharts.getOptions().colors[0]],
+                                    [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                                ]
+                            },
+                            marker: {
+                                radius: 2
+                            },
+                            lineWidth: 1,
+                            states: {
+                                hover: {
+                                    lineWidth: 1
+                                }
+                            },
+                            threshold: null
+                        }
+                    },
+                    series: [{
+                        type: 'area',
+                        name: 'USD to EUR',
+                        data: data
+                    }]
+                });
+            });
+
+            // Network Consume
+            $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function(data) {
+
+                $('#network_consume').highcharts({
+                    chart: {
+                        zoomType: 'x'
+                    },
+                    title: {
+                        text: 'Network(Mbps)'
+                    },
+                    xAxis: {
+                        type: 'datetime'
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Mbps'
+                        }
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        area: {
+                            fillColor: {
+                                linearGradient: {
+                                    x1: 0,
+                                    y1: 0,
+                                    x2: 0,
+                                    y2: 1
+                                },
+                                stops: [
+                                    [0, Highcharts.getOptions().colors[0]],
+                                    [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                                ]
+                            },
+                            marker: {
+                                radius: 2
+                            },
+                            lineWidth: 1,
+                            states: {
+                                hover: {
+                                    lineWidth: 1
+                                }
+                            },
+                            threshold: null
+                        }
+                    },
+                    series: [{
+                        type: 'area',
+                        name: 'USD to EUR',
+                        data: data
+                    }]
+                });
+            });
+        });
+    </script>
+
+<%- include('../_layout/developer_footer'); %>
+

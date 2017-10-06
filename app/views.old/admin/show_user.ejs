@@ -1,0 +1,53 @@
+<%- include('../_layout/admin_header'); %>
+
+
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Users</h1>
+                </div>
+            </div>
+	
+			<div class="row">
+				<!-- 自動更新 toggleBtn -->
+				<div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+					<div class="switch-block">
+						<div class="switch-text">auto update</div>
+						<div class="switch-wrapper ">
+							<input type="checkbox" id="autoUpdateCkb" value="1">
+						</div>
+					</div>	
+				</div>
+
+				<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+					<div class="rightBtn">
+						<a href="/admin/create_user" class="btn btn-info">
+							<span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> New User
+						</a>
+					</div>
+				</div>
+			</div>
+	
+			<div class="row main_block">
+				<div class="row">
+					<div class="col-md-offset-0 col-lg-offset-0 col-md-12 col-lg-12 col-sm-10 col-xs-10 tableArea" style="margin-top:20px">		
+						
+						
+
+					</div>
+				</div>
+			</div>
+        </div>
+        <!-- End of Content -->
+
+	</div>
+	<!-- end of wrapper -->
+	
+	<!-- jQuery -->
+
+	<%- include('../_layout/admin_footer'); %>
+	<script src="/js/part/admin/js.show_user.js"></script>
+
+
+

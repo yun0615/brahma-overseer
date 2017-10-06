@@ -1,0 +1,70 @@
+<%- include('../_layout/admin_header'); %>
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>WebPortal Log</h3>
+              </div>
+
+              <div class="title_right">
+
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+            
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+	                    <div class="x_title">
+	                        <h2>web log data</h2>
+	                    </div>
+	                    <div class="x_content">
+	                        <div class="tableArea">
+								<table class="table" id="dataTables">
+									<thead>
+										<tr class="tg">
+											<th>No.</th>
+											<th>username</th>
+											<th>Role</th>
+											<th>source</th>
+											<th>action</th>
+											<th>message</th>
+											<th>time</th>
+										</tr>
+									</thead>	
+										<% var count = 1 ; %>
+									<tbody>
+										<% data.forEach(function(data){ %>
+											<tr>
+												<td><%=count++%></td>
+												<td><%=data.user%></td>
+												<td><%=data.roles%></td>
+												<td><%=data.ipAddress%></td>
+												<td><%=data.action%></td>
+												<td><%=data.message%></td>
+												<td><%= moment(data.time).format("YYYY-MM-DD, HH:mm:ss")%></td>
+											</tr>
+										<%  }); %>
+									</tbody>
+								</table>
+							</div>
+	                    </div>
+	                </div>
+                </div>        
+            </div>
+        </div>
+    </div>
+    <!-- page content -->
+	<%- include('../_layout/admin_footer'); %>
+
+
+<script>
+var table = $('#dataTables').DataTable({stateSave: true,destory:true});
+$(".x_panel").mCustomScrollbar({
+	axis:"x",
+	theme:"minimal",
+	advanced:{ autoExpandHorizontalScroll:true }
+});
+</script>

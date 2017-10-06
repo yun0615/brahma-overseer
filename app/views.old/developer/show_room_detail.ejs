@@ -1,0 +1,115 @@
+<%- include('../_layout/developer_header'); %>
+
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Meeting Info</h1>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="rightBtn">
+                        <a href="/developer/meeting/upload_file" class="btn btn-info">
+                            <span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> New File
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row main_block">
+                <div class="col-md-11 col-lg-11">
+		     <table class="" style="color:#ddd">
+                        <tr>
+                            <td class="col-md-2 col-lg-2">meeting ID</td>
+                            <td class="col-md-10 col-lg-10"><%=meetingData.meetingID%></td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-2 col-lg-2">meeting Name</td>
+                            <td class="col-md-10 col-lg-10"><%=meetingData.meetingName%></td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-2 col-lg-2">Period</td>
+                            <td class="col-md-10 col-lg-10"><%=meetingData.startDate%> - <%=meetingData.endDate%></td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-2 col-lg-2">create date</td>
+                            <td class="col-md-10 col-lg-10" myVal="roles"><%=meetingData.createTime%></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row main_block">
+                <div class="col-md-11 col-lg-11">
+                    <table class="" style="color:#ddd">
+                        <thead>
+                            <tr class="tg">
+                                <th>No.</th>
+                                <th>file name</th>
+                                <th>use period</th>
+                                <th>file size</th>
+                                <th>create time</th>
+                                <th> </th>
+                                <th> </th>
+                            </tr>
+                        </thead>    
+                            <% var count = 1 ; %>
+                        <tbody>
+                            <% fileData.forEach(function(data){ %>
+                                <tr>
+                                    <td><%=count++%></td>
+                                    <td><%=data.filename%></td>
+                                    <td><%=data.startDate%> - <%=data.endDate%></td>
+                                    <td><%=data.filesize%></td>
+                                    <td><%= moment(data.createTime).format("YYYY-MM-DD,HH:mm:ss")%></td>
+				    <td><%=data.status%></td> 
+                                    <td class="center"><span class="fa fa-trash removeBtn" aria-hidden="true" onclick="$(this).delete_file('<%=data.filename%>','<%=data._id%>')"></span></td>
+                                </tr>
+                            <%  }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <!-- End of Content -->
+
+    </div>
+    <!-- end of wrapper -->
+
+<%- include('../_layout/developer_footer'); %>
+
+<script>
+//======================================
+//           刪除檔案
+//======================================    
+(function($){
+    $.fn.delete_file = function(filename,fileID){
+        var path = "/developer/meeting/delete_file/" + fileID + "/" + filename;
+        $.confirm({
+            theme: 'material',
+            type: 'blue',
+            title: 'Reminder',
+            content: 'Are you sure you want to delete ' + filename + ' ?',
+            buttons: {
+                confirm: {
+                    text: 'Yes',
+                    btnClass: 'btn-blue',
+                    action: function () {
+                        location.href=path;
+                    }
+                },
+                cancel: function () {
+                    //close
+                }
+            }
+        });
+        
+    }
+
+})(jQuery);
+//======================================
+</script>
+

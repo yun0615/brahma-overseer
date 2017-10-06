@@ -1,0 +1,275 @@
+<%- include('../_layout/admin_header'); %>
+
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>App - Line</h1>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:20px">
+                <ul class="nav nav-tabs" id="content_tab" role="tablist" style="font-size:18px">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" id="user_content_tab" data-toggle="tab">User</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" id="vm_content_tab" data-toggle="tab">VM</a></li>
+                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" id="events_content_tab" data-toggle="tab">Events</a></li>
+                </ul>
+            </div>
+
+            <!-- User Authorize Content -->
+            <div id="user_content">
+                <div class="row">
+                    <h2 style="color:#6898d4">User Authorize</h2>
+                </div>
+                <div class="row" style="margin:0px 20px 0px 0px;text-align:right">
+                    <a href="#" class="btn btn-default" style="font-size:18px">Edit</a>
+                </div>
+                <div class="row" style="margin-bottom:20px">
+                    <div class="col-md-12 col-lg-12">
+                        <table class="table table-striped" style="font-size:18px">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Account</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Proces</td>
+                                    <td><a href="mailto:proces@abc.com">proces@abc.com</a></td>
+                                    <td><font style="font-weight:bold">Developer</font></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Pinky</td>
+                                    <td><a href="mailto:pinky@abc.com">pinky@abc.com</a></td>
+                                    <td><font style="font-weight:bold">Developer</font></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Proces2</td>
+                                    <td><a href="mailto:proces2@abc.com">proces2@abc.com</a></td>
+                                    <td>User</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>test</td>
+                                    <td><a href="mailto:test@abc.com">test@abc.com</a></td>
+                                    <td>User</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>test2</td>
+                                    <td><a href="mailto:test2@abc.com">test2@abc.com</a></td>
+                                    <td>User</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>Admin</td>
+                                    <td><a href="mailto:admin@abc.com">admin@abc.com</a></td>
+                                    <td><font style="font-weight:bold">Admin</font></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Virtual Machine Authorize Content -->
+            <div id="vm_content">
+                <div class="row">
+                    <h2 style="color:#e25050">Virtual Machine Authorize</h2>
+                </div>
+                <div class="row" style="margin:0px 20px 0px 0px;text-align:right">
+                    <a href="#" class="btn btn-default" style="font-size:18px">Edit</a>
+                </div>
+                <div class="row" style="margin:20px 0px 20px 0px">
+                    <span class="dropdown col-md-offset-3 col-lg-offset-3">
+                  		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    		Filter
+                    		<span class="caret"></span>
+                    	</button>
+                    	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        	<li><a href="#">VM_ID</a></li>
+                        	<li><a href="#">Images</a></li>
+                        	<li><a href="#">Status</a></li>
+                    	</ul>
+                    </span>
+                    <span>
+                  		<input type="text" class="form-control" style="display:inline;width:20%">
+                	</span>
+                    <a href="" class="btn btn-default">Search</a>
+                </div>
+
+                <div class="row" style="margin-bottom:20px;margin-top:20px">
+                    <div class="col-md-12 col-lg-12">
+                        <table class="table table-striped" style="font-size:18px">
+                            <thead>
+                                <tr>
+                                    <th>VM_ID</th>
+                                    <th>Images</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="#">Android_VM_01</a></td>
+                                    <td><a href="#">android_x86</a></td>
+                                    <td>Installed</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Android_VM_02</a></td>
+                                    <td><a href="#">android_x86</a></td>
+                                    <td>Installed</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Android_VM_03</a></td>
+                                    <td><a href="#">android_x86</a></td>
+                                    <td>Installed</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Android_VM_04</a></td>
+                                    <td><a href="#">android_x86</a></td>
+                                    <td>Installed</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Android_VM_05</a></td>
+                                    <td><a href="#">android_x86</a></td>
+                                    <td>Installed</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Android_VM_06</a></td>
+                                    <td><a href="#">android_x86</a></td>
+                                    <td>Installed</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Android_VM_07</a></td>
+                                    <td><a href="#">android_x86</a></td>
+                                    <td>Installing</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Android_VM_08</a></td>
+                                    <td><a href="#">android_x86</a></td>
+                                    <td>Installing</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Android_VM_09</a></td>
+                                    <td><a href="#">android_x86</a></td>
+                                    <td>Installing</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Android_VM_10</a></td>
+                                    <td><a href="#">android_x86</a></td>
+                                    <td>Installing</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Events Content -->
+            <div id="events_content">
+                <div class="row" style="margin:20px 0px 20px 0px">
+                    <span class="dropdown col-md-offset-3 col-lg-offset-3">
+                  		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    	Filter
+                    	<span class="caret"></span>
+                    	</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+							<li><a href="#">Type</a></li>
+							<li><a href="#">Time</a></li>
+							<li><a href="#">Message</a></li>
+						</ul>
+                    </span>
+                    <span>
+                  		<input type="text" class="form-control" style="display:inline;width:20%">
+	                </span>
+                    <a href="" class="btn btn-default">Search</a>
+                </div>
+                <table class="table table-striped" style="font-size:18px">
+                    <thead>
+                        <th class="col-md-1 col-lg-1">Type</th>
+                        <th class="col-md-1 col-lg-1">Time</th>
+                        <th class="col-md-2 col-lg-2">Message</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="../../dist/img/information.png" style="width:10%"><font> Information</font></td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>Android_VM_01 has successful installation.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../dist/img/error.png" style="width:10%"><font> Error</font></td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>Android_VM_01 has installation faild.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../dist/img/error.png" style="width:10%"><font> Error</font></td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>Android_VM_01 has installation faild.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../dist/img/information.png" style="width:10%"><font> Information</font></td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>Android_VM_02 has successful installation.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../dist/img/information.png" style="width:10%"><font> Information</font></td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>Android_VM_03 has successful installation.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../dist/img/information.png" style="width:10%"><font> Information</font></td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>The Authorization of user test2 has be removed. </td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../dist/img/information.png" style="width:10%"><font> Information</font></td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>The Authorization of user Proces2 has be removed.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../dist/img/information.png" style="width:10%"><font> Information</font></td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>Android_VM_05 has successful installation.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../dist/img/information.png" style="width:10%"><font> Information</font></td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>Android_VM_06 has successful installation..</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../dist/img/information.png" style="width:10%"><font> Information</font></td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>Android_VM_07 has successful installation.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--  End of Content -->
+
+    </div>
+    <!-- end of wrapper -->
+
+  
+
+	<!-- jQuery -->
+    <script>
+      
+
+        $("#content_tab > li > a").click(function() {
+            $("div[id$=_content]").hide(); //所有id為_content為結尾的div全部隱藏
+            var choice = $(this).attr('id').split('_content_tab')[0]; //找出按了哪個button
+            $("#" + choice + "_content").show();
+        });
+
+        $("#user_content_tab").click();
+    </script>
+
+<%- include('../_layout/admin_footer'); %>
+

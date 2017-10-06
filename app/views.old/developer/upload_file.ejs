@@ -1,0 +1,73 @@
+<%- include('../_layout/developer_header'); %>
+<!-- Content start-->
+        <div id="page-wrapper">
+            <div class="row margin64">
+                <div class="col-xlg-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="main_block">
+                        <!-- 標題 -->
+                        <div class="block-heading">
+                            <h2 class="block-title"><%= meetingName %></h2>
+                        </div>
+
+                        <!-- 內容 -->
+                        <div class="block-content" >
+                            <form action="/developer/meeting/upload_file" id="uploadForm"  class="white" method="post" role="form" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-12 control-label ">period</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group date" id="daterangepicker1">
+                                            <input type="text" name="period" class="form-control"/>
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-12 control-label">file</label>
+                                    <div class="col-sm-10">
+                                    	<input id="file" type="file" class="file" name="file" >
+							
+                		    </div>
+                                </div>
+                                
+
+                                <div class="col-sm-12 center">
+				    <span class="hint"></span><br>
+                                    <button type="submit" class="btn btn-info">Submit</button>
+                                    <a href="/developer/meeting/show_room_detail" class="btn btn-default" style="margin-left:10px">Back</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Content -->
+
+    </div>
+    <!-- end of wrapper -->
+<%- include('../_layout/developer_footer'); %>
+
+
+<script>
+$("#uploadForm").submit(function() {
+    var file = $('input[name=file]')[0].files[0];
+
+    if(file.type !== 'application/pdf'){
+        $(".hint").html("Only pdfs are allowed");
+        return false;
+    }
+});
+
+$('input[name=period]').dateRangePicker({
+    autoClose: false,
+    format: 'YYYY-MM-DD',
+    separator: ' - ',
+    startDate: moment(new Date())
+});
+
+
+</script>
+

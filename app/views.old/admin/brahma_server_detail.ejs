@@ -1,0 +1,103 @@
+<%- include('../_layout/admin_header'); %>
+         <% if(typeof(Message) != 'undefined'){ %>
+            <script>alert("<%=Message%>")</script>
+        <% } %>
+		<!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Brahma Server</h1>
+                </div>
+            </div>
+
+            <!-- show server status -->
+            <div class="col-md-3">
+                <div class="row">
+                    <p style="margin-left:20px">
+                       <% if(status == "RUN"){ %>
+				 <img src="../../dist/img/server_run.png" style="width:100%" alt="">
+                    	<% }else{ %>
+				
+				 <img src="../../dist/img/server_stop.png" style="width:100%" alt="">
+			<% } %>
+		    </p>
+                </div>
+                <div class="row">
+                    <a href="/admin/operate_server/run"><span class="col-md-4" style="text-align:center">
+                    	<img src="../../dist/img/power_on.png" style="width:100%;cursor:pointer" alt=""><br />
+                        <font style="color:green">Start</font>
+                    </span></a>
+                    <a href="/admin/operate_server/stop"><span class="col-md-4" style="text-align:center">
+                    	<img src="../../dist/img/power_off.png" style="width:100%;cursor:pointer" alt=""><br />
+                        <font style="color:red">Stop</font>
+                    </span></a>
+                    <a href="/admin/operate_server/restart"><span class="col-md-4">
+                        <img src="../../dist/img/power_restart.png" style="width:100%;cursor:pointer" alt=""><br />
+                        <font style="color:orange">Restart</font>
+                    </span></a>
+                </div>
+            </div>
+
+            <!-- show server detail -->
+            <div class=" col-md-offset-1 col-md-6">
+                <div class="row" style="font-size:20px">
+                    <p>IP Address : 10.10.10.5<span style="margin-left:20px"><a href="/admin/reset_config/server" class="btn btn-default">Reset Config File</a></span> </p></p>
+                    <p>Port ： 8080</p>
+                    <p>Status ：
+			<% if(status == "RUN"){ %>
+                        	<font style="color:green">Running</font>
+                    	<% } else { %>
+                        	<font style="color:red">Stop</font>
+			<% } %>	
+		    </p>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12" style="padding-left:0px;padding-right:0px">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-bell fa-fw"></i> Events
+                            </div>
+                            <div class="panel-body">
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item">
+                                        <img src="../../dist/img/information.png" style="width:2%"> Information Message.
+                                        <span class="pull-right text-muted small"><em>4 minutes ago</em></span>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <img src="../../dist/img/error.png" style="width:2%"> Error Message.
+                                        <span class="pull-right text-muted small"><em>12 minutes ago</em></span>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <img src="../../dist/img/information.png" style="width:2%"> Information Message.
+                                        <span class="pull-right text-muted small"><em>27 minutes ago</em></span>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <img src="../../dist/img/information.png" style="width:2%"> Information Message.
+                                        <span class="pull-right text-muted small"><em>43 minutes ago</em></span>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <img src="../../dist/img/information.png" style="width:2%"> Information Message.
+                                        <span class="pull-right text-muted small"><em>11:32 AM</em></span>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <img src="../../dist/img/error.png" style="width:2%"> Error Message.
+                                        <span class="pull-right text-muted small"><em>11:13 AM</em></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- End of Content -->
+
+    </div>
+	<!-- end of wrapper -->
+
+	
+
+<%- include('../_layout/admin_footer'); %>
+  

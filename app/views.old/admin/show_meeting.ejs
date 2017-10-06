@@ -1,0 +1,106 @@
+<%- include('../_layout/admin_header'); %>
+
+
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Users</h1>
+                </div>
+            </div>
+	
+			<div class="row">
+
+				<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+					<div class="rightBtn">
+						<a href="/admin/create_meeting" class="btn btn-info">
+							<span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> New Meeting Room
+						</a>
+					</div>
+				</div>
+			</div>
+	
+			<div class="row main_block">
+				<div class="row">
+					<div class="col-md-offset-0 col-lg-offset-0 col-md-12 col-lg-12 col-sm-10 col-xs-10 tableArea" style="margin-top:20px">		
+						<div class="tableArea">
+              						<table class="table" id="dataTables">
+					        	<thead>
+					                	<tr class="tg">
+					                    	<th>No.</th>
+						                    <th>Meeting ID</th>
+						                    <th>Meeting name</th>
+						                    <th>Host ID</th>
+						                    <th>Start Date</th>
+						                    <th>End Date</th>
+								    <th></th>
+								    <th></th>
+					                  	</tr>
+					                </thead>  
+					                <% var count = 1 ; %>
+					                <tbody>
+					                  	<% data.forEach(function(data){ %>
+					                    <tr>
+					                      	<td><%=count++%></td>
+					                    	<td><%=data.meetingID%></td>
+					                    	<td><%=data.meetingName%></td>
+					                    	<td><%=data.hostID%></td>
+					                    	<td><%=data.startDate%></td>
+					                     	<td><%=data.endDate%></td>
+								<td style="color:#ff0000"><%=data.status%></td>
+								<td><span class="fa fa-trash removeBtn" aria-hidden="true" onclick="$(this).delete_meeting('<%=data.meetingID%>','<%=data.meetingName%>')"></span></td>
+					                    </tr>
+					                  	<%  }); %>
+					                </tbody>
+					            </table>
+            				</div>						
+						
+
+					</div>
+				</div>
+			</div>
+        </div>
+        <!-- End of Content -->
+
+	</div>
+	<!-- end of wrapper -->
+	
+	<!-- jQuery -->
+
+	<%- include('../_layout/admin_footer'); %>
+
+
+<script>
+var table = $('#dataTables').DataTable({stateSave: true,destory:true});
+$(".x_panel").mCustomScrollbar({
+  axis:"x",
+  theme:"minimal",
+  advanced:{ autoExpandHorizontalScroll:true }
+});
+
+
+(function($){
+    $.fn.delete_meeting = function(meetingID,meetingName){
+        var path = "/admin/delete_meeting/" + meetingID;
+        $.confirm({
+            theme: 'material',
+            type: 'blue',
+            title: 'Reminder',
+            content: 'Are you sure you want to delete ' + meetingName + ' ?',
+            buttons: {
+                confirm: {
+                    text: 'Yes',
+                    btnClass: 'btn-blue',
+                    action: function () {
+                        location.href=path;
+                    }
+                },
+                cancel: function () {
+                    //close
+                }
+            }
+        }); 
+    }
+})(jQuery);
+
+</script>

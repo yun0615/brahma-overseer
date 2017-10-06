@@ -1,0 +1,211 @@
+<%- include('../_layout/developer_header'); %>
+
+
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Application - Upload</h1>
+                </div>
+            </div>
+            <div class="row">
+                <a href="#" class="btn btn-default col-md-offset-10 col-lg-offset-10">Send Request</a>
+            </div>
+
+            <!-- Upload Block -->
+            <div class="row" style="margin-top:20px">
+                <div class="col-md-11 col-lg-11" id="upload_block" style="border:1px solid black;border-radius:5px;min-height:200px;padding-bottom:20px">
+                    <div>
+                        <h2>Upload</h2>
+                        <table style="font-size:18px;width:60%" id="table_upload">
+                            <tr>
+                                <td class="col-md-1 col-lg-1">Icon：</td>
+                                <td class="col-md-1 col-lg-1"><input type="file"></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-1 col-lg-1">Name：</td>
+                                <td class="col-md-1 col-lg-1"><input type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-1 col-lg-1">Introduction：</td>
+                                <td class="col-md-2 col-lg-2"><textarea name="" id="" style="width:100%;height:100px"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-1 col-lg-1">Version：</td>
+                                <td class="col-md-1 col-lg-1"><input type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-1 col-lg-1">Apk file：</td>
+                                <td class="col-md-1 col-lg-1"><input type="file"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:20px;margin-bottom:20px">
+
+                <!-- User Authorize Block -->
+                <div class="col-md-5 col-lg-5" id="user_block" style="border:1px solid black;border-radius:5px;min-height:400px">
+                    <div>
+                        <h2>Department Authorize</h2>
+                        <table style="font-size:18px;width:100%">
+                            <tr>
+                                <td>Auth_Type：</td>
+                                <td colspan="2">
+                                    <input type="radio" name="depart_auth_type" value="public" checked="true"> public
+                                    <input type="radio" name="depart_auth_type" style="margin-left:5px" value="private"> private
+                                </td>
+                            </tr>
+                            <tr id="select_depart_tr">
+                                <td class="col-md-6 col-lg-6">
+                                    <font>Department</font><br />
+                                    <ul type="none" style="padding:10px;border:1px solid black;font-size:14px">
+                                        <li id="depart_1">Human Resources Department</li>
+                                        <li id="depart_2">General Affairs Department</li>
+                                        <li id="depart_3">Service Department</li>
+                                    </ul>
+                                </td>
+                                <td class="col-md-1 col-lg-1">
+                                    <a class="btn btn-default"> > </a><br />
+                                    <a class="btn btn-default"> < </a>
+                                </td>
+                                <td class="col-md-5 col-lg-5" style="padding-top:20px">
+                                    <font>Permit Department</font><br />
+                                    <ul type="none" style="padding:10px;border:1px solid black;font-size:14px">
+                                        <li id="depart_4">Research Deparment</li>
+                                        <li id="depart_5">General Accounting Department</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Virtual Machine assign block -->
+                <div class="col-md-6 col-lg-6" id="vm_block" style="border:1px solid black;border-radius:5px;min-height:400px">
+                    <div>
+                        <h2>Support Platform</h2>
+                        <table style="font-size:18px">
+                            <tr>
+                                <td>Operation System：</td>
+                                <td>
+                                    <select name="" class="form-control" id="">
+                                       <option value="" selected="true">Android</option>
+                                       <option value="" selected="true">iOS</option>
+                                   </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>OS Version：</td>
+                                <td id="td_os_version">
+                                    <span>
+                                        <input type="text" class="form-control" style="display:inline;width:80%">
+                                        <img src="../../dist/img/plus.png"  id="plus_button" style="width:5%;cursor:pointer" >
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Bits：</td>
+                                <td><input type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>Requested Memory：</td>
+                                <td><input type="number" min='0' style="display:inline;width:80%" class="form-control"> MB</td>
+                            </tr>
+                            <tr>
+                                <td>Requested Disk：</td>
+                                <td><input type="number" min='0' style="display:inline;width:80%" class="form-control"> MB</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Content -->
+
+	</div>
+	<!-- end of wrapper -->
+
+	
+
+	<script type="text/javascript">
+		var margin_l = 20;
+		$('#user_block').css({
+			'margin-right': margin_l + 'px'
+		});
+		var upload_block_width = $("#upload_block").width() + margin_l + 30;
+		console.log(upload_block_width);
+		$('#upload_block').css({
+			'width': upload_block_width + 'px'
+		});
+
+		// user select view
+		$("li[id^=depart]").click(function() {
+			var choice = $(this).attr('id').split('depart_')[1]; //get the clicked data ;
+			console.log(choice);
+			$("li[id^=depart]").css({
+				'background-color': 'white',
+				'color': 'black'
+			});
+			$(this).css({
+				'background-color': "#6898d4",
+				'color': 'white'
+			});
+		});
+
+		// images select view
+		$("li[id^=img]").click(function() {
+			var choice = $(this).attr('id').split('img_')[1]; //get the clicked data ;
+			console.log(choice);
+			$("li[id^=img]").css({
+				'background-color': 'white',
+				'color': 'black'
+			});
+			$(this).css({
+				'background-color': "#e25050",
+				'color': 'white'
+			});
+		});
+
+		// user auth type
+		$('[name=depart_auth_type]').change(function() {
+			switch ($(this).val()) {
+				case "public":
+					$("#select_depart_tr").hide();
+					break;
+				case "private":
+					$("#select_depart_tr").show();
+					break;
+			}
+		});
+		$('[name=depart_auth_type]').change();
+		$('#select_depart_tr').hide();
+
+		//images auth type
+		$('[name=img_auth_type]').change(function() {
+			switch ($(this).val()) {
+				case "public":
+					$("#select_img_tr").hide();
+					break;
+				case "private":
+					$("#select_img_tr").show();
+					break;
+			}
+		});
+		$('[name=img_auth_type]').change();
+		$('#select_img_tr').hide();
+
+		//os version plus button
+		$("#plus_button").click(function() {
+			var new_input = '<span style="display:block;margin-top:5%" ><input type="text" class="form-control" style="display:inline;width:80%"> <img src="../../dist/img/minus.png" name="minus_button" style="width:5%;cursor:pointer"></span>';
+			$('#td_os_version').append(new_input);
+			$('#td_os_version > span').on('click', '[name=minus_button]', function() {
+				$(this).parent('span').remove();
+			});
+			console.log("H");
+		});
+	</script>
+<%- include('../_layout/developer_footer'); %>
+
+

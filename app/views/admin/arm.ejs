@@ -1,0 +1,120 @@
+<%- include('../_layout/admin_header'); %>
+	<!-- page content -->
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>ARM Cluster</h3>
+              </div>
+
+              <div class="title_right">
+
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+            
+        	<div class="row">
+                <a href="#" id="power_on_instance" class="btn btn-success"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> Power On</a>
+                <a href="#" id="power_off_instance" class="btn btn-danger"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Power Off</a>
+
+                <!--<a href="#" id="assign_user" class="btn btn-info"><span class="glyphicon glyphicon-cog" aria-hidden="true"> Policy</a>-->
+            </div>
+ 			<br>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                    <div class="x_title">
+                        <h2></h2>
+                    </div>
+                    <div class="x_content">
+                        <table class="table" id="dataTables">
+							<thead>
+								<tr class="tg">
+									<th>Android_ID</th>
+									<th>IP Address</th>
+									<th>MAC Address</th>
+									<th>Model</th>
+									<th>Android Version</th>
+									<th>bmc agent version</th>
+									<th>kernel version</th>
+									<th>Power Status</th>
+								</tr>
+							</thead>	
+								
+							<tbody>
+								<% all_arm_data.forEach(function(data){
+                                     var number =  data.ID.split("_")[1] ;
+                             	%>
+									<tr id="vm_data_<%=number%>">
+										<td><%=data.ID%></td>
+										<td><%=data.IP%></td>
+										<td><%=data.MAC%></td>
+										<td><%=data.model%></td>
+										<td><%=data.version%></td>
+										<td><%=data.bmc%></td>
+										<td><%=data.kernel%></td>
+										<% if(data.Status == "Running") { %>
+                                            <td style="color:blue;cursor:pointer"><img src="../../dist/img/status_run.png" alt="" style="width:15%"> Running</td>
+                                        <% }else { %>
+                                            <td style="color:blue;cursor:pointer"><img src="../../dist/img/status_stop.png" alt="" style="width:15%"> Stopped</td>
+                                        <% } %>
+									</tr>
+								<%  }); %>
+							</tbody>
+						</table>
+                    </div>
+                </div>
+              </div>           
+            </div>
+        </div>
+    </div>
+    <!-- page content -->
+	<%- include('../_layout/admin_footer'); %>
+
+
+<script>
+var table = $('#dataTables').DataTable({stateSave: true,destory:true});
+$(".main_block").mCustomScrollbar({
+	axis:"x",
+	theme:"minimal",
+	advanced:{ autoExpandHorizontalScroll:true }
+});
+
+var vm = null ;
+$("tr[id^=vm_data]").click(function() {
+    $("tr[id^=vm_data]").css({
+        'background-color': 'white'
+    });
+    var num = $(this).attr('id').split('vm_data_')[1]; //get the clicked data
+    $("#vm_data_" + num).css({
+        'background-color': '#FFFF77'
+    });
+
+    vm = num ;
+    // $("#dialog").attr('title','VM_'+num+" - assign user") ;
+    console.log(vm) ;
+});
+
+// Power on instance
+  $("#power_on_instance").click(function(){
+       if(vm == null)
+          alert("No Select Instance") ;
+       else
+          alert("Power on "+vm) ;
+          location.href = "/admin/power_on_instance/"+vm ;
+  });
+
+// Power off instance
+  $("#power_off_instance").click(function(){
+       if(vm == null)
+          alert("No Select Instance") ;
+       else
+          alert("Power off "+vm) ;
+          location.href = "/admin/power_off_instance/"+vm ;
+  });
+
+
+
+</script>
+

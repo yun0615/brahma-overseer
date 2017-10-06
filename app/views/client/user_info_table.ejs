@@ -1,0 +1,39 @@
+<table class="userInfoBox">
+	<tr>
+		<td class="col-md-2 col-lg-2">username</td>
+		<td class="col-md-10 col-lg-10" myVal="username"><%=userData.username%></td>
+	</tr>
+	<tr>
+		<td class="col-md-2 col-lg-2">Email</td>
+		<td class="col-md-10 col-lg-10" myVal="email"><%=userData.email%></td>
+	</tr>
+	<tr>
+		<td class="col-md-2 col-lg-2">Approved</td>
+		<% if(userData.approved == true){ %>
+			<td class="col-md-10 col-lg-10 green" myVal="approved">
+		<% }else{ %>
+			<td class="col-md-10 col-lg-10 red" myVal="approved">
+		<% }%>
+			<%=userData.approved%></td>
+	</tr>
+	<tr>
+		<td class="col-md-2 col-lg-2">Role</td>
+		<td class="col-md-10 col-lg-10" myVal="roles"><%=userData.roles%></td>
+	</tr>
+	<tr>
+		<td class="col-md-2 col-lg-2">Device_Type</td>
+		<td class="col-md-10 col-lg-10" myVal="device_type"><%=userData.device_type%></td>
+	</tr>
+	<tr>
+		<td class="col-md-2 col-lg-2">Status</td>
+		<td class="col-md-10 col-lg-10" myVal="Status"><%=userData.Status%></td>
+	</tr>
+	<tr>
+		<td class="col-md-2 col-lg-2">bandwidth</td>
+		<td class="col-md-10 col-lg-10" myVal="bandwidth"><%=userData.bandwidth%></td>
+	</tr>
+	<tr>
+		<td class="col-md-2 col-lg-2">latency</td>
+		<td class="col-md-10 col-lg-10" myVal="latency"><%=userData.latency%></td>
+	</tr>
+</table>
