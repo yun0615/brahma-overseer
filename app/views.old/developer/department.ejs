@@ -1,0 +1,73 @@
+<%- include('../_layout/developer_header'); %>
+
+
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Department</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-offset-0 col-lg-offset-0 col-md-8 col-lg-8 col-sm-10 col-xs-10" style="margin-top:20px">
+                    <table class="table table-bordered table-hover" style="width:100%;font-size:18px;text-align:center">
+                        <tbody>
+                            <tr class="tg" style="padding-top:20px;background-color:#ddd">
+                                <th class="col-md-2 col-lg-2">Department</th>
+                                <th class="col-md-1 col-lg-1">Number of Peoples</th>
+                            </tr>
+                            <tr>
+                                <td>Human Resources Department</td>
+                                <td>30</td>
+                            </tr>
+                            <tr>
+                                <td>General Affairs Department</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>Engineering Deparment</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>Research Deparment</td>
+                                <td>30</td>
+                            </tr>
+                            <tr>
+                                <td>Service Department</td>
+                                <td>25</td>
+                            </tr>
+                            <tr>
+                                <td>Purchase & Order Department</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>General Accounting Department</td>
+                                <td>15</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- End of Content -->
+
+	</div>
+	<!-- end of wrapper -->
+
+	
+
+	<!-- jQuery -->
+	<script type="text/javascript">
+		var margin_l = 20;
+		$('#app_use_block').css({
+			'margin-right': margin_l + 'px'
+		});
+		var upload_block_width = $("#auth_app_block").width() + margin_l + 30;
+		console.log(upload_block_width);
+		$('#auth_app_block').css({
+			'width': upload_block_width + 'px'
+		});
+	</script>
+<%- include('../_layout/developer_footer'); %>
+

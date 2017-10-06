@@ -1,0 +1,93 @@
+<%- include('../_layout/admin_header'); %>
+
+
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Images</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <a href="/admin/upload_images" class="btn btn-success col-md-offset-10 col-lg-offset-10 " style="font-size:18px"><span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> Upload</a>
+            </div>
+
+            <div class="row">
+                <div class="col-md-offset-0 col-lg-offset-0 col-md-12 col-lg-12 col-sm-10 col-xs-10" style="margin-top:20px">
+                    <table class="table table-bordered table-hover" style="width:100%;font-size:18px;text-align:center">
+                        <tbody>
+
+                            <tr style="background-color:#ddd">
+                                <th class="col-md-1 col-lg-1 col-sm-1 col-xs-1">Upload Date</th>
+                                <th class="col-md-1 col-lg-1">Name</th>
+                                <th class="col-md-1 col-lg-1">OS</th>
+                                <th class="col-md-1 col-lg-1">Bits</th>
+                                <th class="col-md-1 col-lg-1 col-sm-1 col-xs-1">Version</th>
+                                <th class="col-md-2 col-lg-2">Introduction</th>
+                                <th class="col-md-1 col-lg-1">VM NAMESPACE</th>
+                                <th class="col-md-1 col-lg-1">Edit</th>
+                                <th class="col-md-1 col-lg-1">Delete</th>
+                            </tr>
+
+                            <tr>
+                                <td>2016-08-09</td>
+                                <td><a href="#">android_x86.img</a></td>
+                                <td name="file_intro_col">Android</td>
+                                <td>32</td>
+                                <td name="file_intro_col">4.4.4</td>
+                                <td>This is android 4.4.4 img.</td>
+                                <td class="col-md-1 col-lg-1">Android_VM_</td>
+                                <td style="text-align:center"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:orange;font-size:30px"></span></td>
+                                <td style="text-align:center;"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true" onclick="delete_file_data(21)" style=";color:red;font-size:30px;cursor:pointer"></span></td>
+                            </tr>
+
+                            <tr>
+                                <td>2016-08-08</td>
+                                <td><a href="#">android_x86_64.img</a></td>
+                                <td name="file_intro_col">Android</td>
+                                <td>64</td>
+                                <td name="file_intro_col">4.4.4</td>
+                                <td>This is android 4.4.4 img.</td>
+                                <td class="col-md-1 col-lg-1">Android_VM_64_</td>
+                                <td style="text-align:center"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:orange;font-size:30px"></span></td>
+                                <td style="text-align:center;"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true" onclick="delete_file_data(21)" style=";color:red;font-size:30px;cursor:pointer"></span></td>
+                            </tr>
+
+                            <tr>
+                                <td>2016-08-01</td>
+                                <td><a href="#">android_x86_5.img</a></td>
+                                <td name="file_intro_col">Android</td>
+                                <td>32</td>
+                                <td name="file_intro_col">5.0</td>
+                                <td>This is android 5.0 img.</td>
+                                <td class="col-md-1 col-lg-1">Android_VM_5_</td>
+                                <td style="text-align:center"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:orange;font-size:30px"></span></td>
+                                <td style="text-align:center;"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true" onclick="delete_file_data(21)" style=";color:red;font-size:30px;cursor:pointer"></span></td>
+
+                            </tr>
+
+                            <tr>
+                                <td>2016-08-01</td>
+                                <td><a href="#">android_x86_64_5.img</a></td>
+                                <td name="file_intro_col">Android</td>
+                                <td>64</td>
+                                <td name="file_intro_col">5.0</td>
+                                <td>This is android 5.0 img.</td>
+                                <td class="col-md-1 col-lg-1">Android_VM_64_5_</td>
+                                <td style="text-align:center"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:orange;font-size:30px"></span></td>
+                                <td style="text-align:center;"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true" onclick="delete_file_data(21)" style=";color:red;font-size:30px;cursor:pointer"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- End of Content -->
+
+    </div>
+	<!-- end of wrapper -->
+
+	
+<%- include('../_layout/admin_footer'); %>
+

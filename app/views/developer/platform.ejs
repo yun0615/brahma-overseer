@@ -1,0 +1,74 @@
+<%- include('../_layout/developer_header'); %>
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+                <div class="title-left">
+                    <h3>Mobile Platform Support</h3>
+                </div>
+                <div class="title_right">
+
+                </div>
+            </div>
+
+             <div class="clearfix"></div>
+
+             <div class="row">
+                <div class="col-md-12 col-lg-12 col-xs-12">
+                    <table class="table" style="width:100%;font-size:18px;text-align:center">
+                        <tbody>
+                            <tr style="background-color:#ddd">
+                                <th class="col-md-1 col-lg-1">OS</th>
+                                <th class="col-md-1 col-lg-1">Bits</th>
+                                <th class="col-md-1 col-lg-1 col-sm-1 col-xs-1">OS Version</th>
+                            </tr>
+
+                            <tr>
+                                <td name="file_intro_col">Android</td>
+                                <td>32</td>
+                                <td name="file_intro_col">4.4.4</td>
+                            </tr>
+
+                            <tr>
+                                <td name="file_intro_col">Android</td>
+                                <td>64</td>
+                                <td name="file_intro_col">4.4.4</td>
+                            </tr>
+
+                            <tr>
+                                <td name="file_intro_col">Android</td>
+                                <td>32</td>
+                                <td name="file_intro_col">5.0</td>
+                            </tr>
+
+                            <tr>
+                                <td name="file_intro_col">Android</td>
+                                <td>64</td>
+                                <td name="file_intro_col">5.0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+             </div>
+        </div>
+    </div>
+
+    <!-- page content -->
+
+<%- include('../_layout/developer_footer'); %>
+
+<!-- jQuery -->
+<script type="text/javascript">
+    var margin_l = 20;
+    $('#app_use_block').css({
+        'margin-right': margin_l + 'px'
+    });
+    var upload_block_width = $("#auth_app_block").width() + margin_l + 30;
+    console.log(upload_block_width);
+    $('#auth_app_block').css({
+        'width': upload_block_width + 'px'
+    });
+</script>
+
+

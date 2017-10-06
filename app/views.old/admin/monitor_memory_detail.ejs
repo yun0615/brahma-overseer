@@ -1,0 +1,62 @@
+<%- include('../_layout/admin_header'); %>
+    
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Memory</h1>
+                </div>
+            </div>
+
+<h1>RAM</h1>
+<hr>
+  <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+    <div data-netdata="system.ram"
+        data-chart-library="dygraph"
+        data-height="200"
+        data-after="-600"
+        ></div>
+  </div>
+<h1>SWAP</h1>
+<hr>
+  <div style="width: 95%; max-height: calc(95% - 15px); text-align: center; display: inline-block;">
+    <div data-netdata="system.swap"
+        data-chart-library="dygraph"
+        data-height="200"
+        data-after="-600"
+        ></div>
+  </div>
+<!--
+<hr>
+    <div data-netdata="apps.mem"
+        data-chart-library="dygraph"
+        data-width="600"
+        data-height="200"
+        data-after="-600"
+        ></div>
+
+<hr>
+    <div data-netdata="users.mem"
+        data-chart-library="dygraph"
+        data-width="600"
+        data-height="200"
+        data-after="-600"
+        ></div>
+
+<hr>
+    <div data-netdata="groups.mem"
+        data-chart-library="dygraph"
+        data-width="600"
+        data-height="200"
+        data-after="-600"
+        ></div>
+-->
+
+<!-- load the dashboard manager - it will do the rest -->
+<script type="text/javascript" src="dashboard.js?v20161011-1"></script>
+
+    </div>
+    <!-- end of wrapper -->
+    
+<%- include('../_layout/admin_footer'); %>
+

@@ -1,0 +1,48 @@
+<%- include('../_layout/developer_header'); %>
+    
+
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Meeting Room</h1>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <% data.forEach(function(data){ %>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <%=data.meetingID%>
+                        </div>
+                        <div class="panel-body">
+                            <p>
+                                <%=data.meetingName%><br>
+                                <%=data.startDate%> - <%=data.endDate%>
+                            </p>
+                        </div>
+                        <a href="/developer/meeting/show_room_detail/<%=data.meetingID%>">
+			    <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <% }); %>
+
+            </div>
+        </div>
+        <!-- End of Content -->
+
+    </div>
+    <!-- end of wrapper -->
+
+
+    
+<%- include('../_layout/developer_footer'); %>
+
+

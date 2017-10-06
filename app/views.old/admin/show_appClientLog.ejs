@@ -1,0 +1,65 @@
+<%- include('../_layout/admin_header'); %>
+
+
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">AppClient Log</h1>
+                </div>
+            </div>
+	
+			<div class="row main_block">
+				<div class="row">
+					<div class="col-md-offset-0 col-lg-offset-0 col-md-12 col-lg-12 col-sm-10 col-xs-10 tableArea" style="margin-top:20px">		
+						<table class="table" id="dataTables">
+							<thead>
+								<tr class="tg">
+									<th>No.</th>
+									<th>username</th>
+									<th>source</th>
+									<th>Devics</th>
+									<th>OS</th>
+									<th>message</th>
+									<th>time</th>
+								</tr>
+							</thead>	
+								<% var count = 1 ; %>
+							<tbody>
+								<% data.forEach(function(data){ %>
+									<tr>
+										<td><%=count++%></td>
+										<td><%=data.username%></td>
+										<td><%=data.ipAddress%></td>
+										<td><%=data.device%></td>
+										<td><%=data.os%></td>
+										<td><%=data.message%></td>
+										<td><%= moment(data.time).format("YYYY-MM-DD, HH:mm:ss")%></td>
+									</tr>
+								<%  }); %>
+							</tbody>
+						</table>
+						
+
+					</div>
+				</div>
+			</div>
+        </div>
+        <!-- End of Content -->
+
+	</div>
+	<!-- end of wrapper -->
+	
+	<!-- jQuery -->
+
+	<%- include('../_layout/admin_footer'); %>
+
+
+<script>
+var table = $('#dataTables').DataTable({stateSave: true,destory:true});
+$(".main_block").mCustomScrollbar({
+	axis:"x",
+	theme:"minimal",
+	advanced:{ autoExpandHorizontalScroll:true }
+});
+</script>

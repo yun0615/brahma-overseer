@@ -1,0 +1,268 @@
+<%- include('../_layout/admin_header'); %>
+
+
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Virtual Machine - Android_VM_01</h1>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:20px">
+                <ul class="nav nav-tabs" id="content_tab" role="tablist" style="font-size:18px">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" id="summarize_content_tab" data-toggle="tab">Summarize</a></li>
+                    <li role="presentation"><a href="#home" aria-controls="home" role="tab" id="resources_content_tab" data-toggle="tab">Resources</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" id="app_content_tab" data-toggle="tab">App</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" id="events_content_tab" data-toggle="tab">Events</a></li>
+                </ul>
+            </div>
+
+            <!-- Summarize Content -->
+            <div id="summarize_content">
+                <div class="row" style="margin-top:20px">
+                    <a href="#" class="btn btn-primary" disabled="true">Start</a>
+                    <a href="#" class="btn btn-danger">Shutdown</a>
+                    <a href="#" class="btn btn-default">Open Console</a>
+                </div>
+                <div class="row" style="margin:20px 0px 20px 0px">
+                    <div class="col-md-5 col-lg-5" style="border:1px solid black;border-radius:5px;min-height:500px;margin-right:20px">
+                        <div>
+                            <h2>General</h2>
+                            <table style="font-size:18px;width:100%" id="table_vm_information">
+                                <tbody>
+                                    <tr>
+                                        <td class="col-md-1 col-lg-1">VM_ID：</td>
+                                        <td class="col-md-1 col-lg-1">Android_VM_01</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-1 col-lg-1">Images：</td>
+                                        <td class="col-md-1 col-lg-1"><a href="#">android_x86.img</a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-1 col-lg-1">Memory：</td>
+                                        <td class="col-md-1 col-lg-1">2048 MB</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-1 col-lg-1">VM Disk：</td>
+                                        <td class="col-md-1 col-lg-1">20480 MB</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-1 col-lg-1">VM Images Size：</td>
+                                        <td class="col-md-1 col-lg-1">800 MB</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-1 col-lg-1">IP Address：</td>
+                                        <td class="col-md-1 col-lg-1">192.168.0.1</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-1 col-lg-1">MAC Address：</td>
+                                        <td class="col-md-1 col-lg-1">DE:AD:BE:EF:00:01</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-1 col-lg-1">Status：</td>
+                                        <td class="col-md-1 col-lg-1"><img src="../../dist/img/status_run.png" alt="" style="width:10%"> Running</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-1 col-lg-1">Create Time：</td>
+                                        <td class="col-md-1 col-lg-1">2016/08/15 18:00:00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5 col-lg-5" style="border:1px solid black;border-radius:5px;min-height:500px;margin:0px 20px 20px 0px">
+                        <div>
+                            <h2>User Authorize</h2>
+                            <div class="row" style="margin:20px 0px 20px 0px">
+                                <a href="#" class="btn btn-default">Remove Assign</a>
+                                <a href="#" class="btn btn-default">Assign User</a>
+                            </div>
+                            <ul type="none" style="padding:10px;border:1px solid black;min-height:300px;font-size:16px">
+                                <li id="user_2">Proces2</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources Content -->
+            <div id="resources_content" style="margin-top:20px">
+                <div class="row" style="margin-top:20px;margin-bottom:20px">
+                    <table>
+                        <tr>
+                            <td class="col-md-5 col-lg-5">
+                                <!-- CPU Consume -->
+                                <h2 style="margin-bottom:20px">CPU</h2>
+                                <div id="cpu_consume" style="border:1px solid black;border-radius:5px;min-height:400px;"></div>
+                            </td>
+                            <td class="col-md-5 col-lg-5">
+                                <!-- Memory Consume -->
+                                <h2 style="margin-bottom:20px">Memory</h2>
+                                <div id="memory_consume" style="border:1px solid black;border-radius:5px;min-height:400px;"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-5 col-lg-5">
+                                <!-- Network Consume -->
+                                <h2 style="margin-bottom:20px">Network</h2>
+
+                                <div id="network_consume" style="border:1px solid black;border-radius:5px;min-height:400px;"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- App Content -->
+            <div id="app_content" style="margin-top:20px">
+                <div class="row" style="margin-bottom:20px">
+                    <div class="col-md-11 col-lg-11" id="auth_app_block" style="border:1px solid black;border-radius:5px;min-height:200px;padding-bottom:20px">
+                        <div>
+                            <h2>Installed App</h2>
+                            <div class="col-md-12 col-lg-12">
+                                <table class="table table-bordered table-hover" style="font-size:18px;width:100%">
+                                    <tbody>
+                                        <tr style="background-color:#ddd">
+                                            <th class="col-md-1 col-lg-1 col-sm-1 col-xs-1">Install Date</th>
+                                            <th class="col-md-1 col-lg-1">Icon</th>
+                                            <th class="col-md-1 col-lg-1">Name</th>
+                                            <th class="col-md-1 col-lg-1">Version</th>
+                                            <th class="col-md-1 col-lg-1">Consume CPU(%)</th>
+                                            <th class="col-md-1 col-lg-1">Consume Memory</th>
+                                            <th class="col-md-1 col-lg-1">Network</th>
+                                        </tr>
+                                        <tr>
+                                            <td>2016-06-12</td>
+                                            <td><img src="../../dist/img/line.png" alt="" style="width:50%"></td>
+                                            <td><a href="/admin/show_app_detail">Line</a></td>
+                                            <td name="version">6.5.1</td>
+                                            <td>1.15</td>
+                                            <td>200.0 MB</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2016-06-11</td>
+                                            <td><img src="../../dist/img/skype.png" alt="" style="width:50%"></td>
+                                            <td><a href="#">Skype</a></td>
+                                            <td name="version">6.20</td>
+                                            <td>1.09</td>
+                                            <td>200.0 MB</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2016-06-11</td>
+                                            <td><img src="../../dist/img/google_map.jpg" alt="" style="width:50%"></td>
+                                            <td><a href="#">Google Map</a></td>
+                                            <td name="version">4.21.1</td>
+                                            <td>1.09</td>
+                                            <td>200.0 MB</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2016-06-03</td>
+                                            <td><img src="../../dist/img/google_drive.png" alt="" style="width:50%"></td>
+                                            <td><a href="#">Google Drive</a></td>
+                                            <td name="version">4.12.1</td>
+                                            <td>0.01</td>
+                                            <td>200.0 MB</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Events Content -->
+            <div id="events_content">
+                <div class="row" style="margin:20px 0px 20px 0px">
+                    <span class="dropdown col-md-offset-3 col-lg-offset-3">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Filter
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Type</a></li>
+                            <li><a href="#">Time</a></li>
+                            <li><a href="#">Message</a></li>
+                        </ul>
+                    </span>
+                    <span>
+                        <input type="text" class="form-control" style="display:inline;width:20%">
+                    </span>
+                    <a href="" class="btn btn-default">Search</a>
+                </div>
+                <table class="table table-striped" style="font-size:18px">
+                    <thead>
+                        <th class="col-md-1 col-lg-1">Type</th>
+                        <th class="col-md-1 col-lg-1">Time</th>
+                        <th class="col-md-2 col-lg-2">Message</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="../../dist/img/information.png" style="width:10%"><font> Information</font></td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>The user Proces has login in.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../dist/img/error.png" style="width:10%"><font> Error</font></td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>Android_VM_01 has encounter a boot error.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../dist/img/information.png" style="width:10%"><font> Information</font></td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>Android_VM_01 has restart.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../dist/img/information.png" style="width:10%"><font> Information</font></td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>Skype has be installed.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../dist/img/information.png" style="width:10%"><font> Information</font></td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>Line has be installed.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../dist/img/information.png" style="width:10%"><font> Information</font></td>
+                            <td>2016/8/15 16:20:00</td>
+                            <td>The user proces has be authorized.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- End of Content -->
+
+    </div>
+    <!-- end of wrapper -->
+
+
+    <!-- jQuery -->
+    <script>
+       
+
+        //choice tab
+        $("#content_tab > li > a").click(function() {
+            $("div[id$=_content]").hide(); //所有id為_content為結尾的div全部隱藏
+
+            var choice = $(this).attr('id').split('_content_tab')[0]; //找出按了哪個button
+            $("#" + choice + "_content").show();
+        });
+
+        $("#summarize_content_tab").click();
+    </script>
+<%- include('../_layout/admin_footer'); %>

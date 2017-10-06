@@ -1,0 +1,79 @@
+<%- include('../_layout/developer_header'); %>
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Application</h3>
+              </div>
+
+              <div class="title_right">
+
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="row">
+                <a href="/developer/upload_apk" class="btn btn-default col-md-offset-10 col-lg-offset-10">Upload Apk</a>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <table class="table table-bordered table-hover" style="font-size:18px;width:100%">
+                        <tbody>
+                            <tr style="background-color:#ddd">
+                                <th class="col-md-1 col-lg-1 col-sm-1 col-xs-1">Upload Date</th>
+                                <th class="col-md-1 col-lg-1">Icon</th>
+                                <th class="col-md-1 col-lg-1">Name</th>
+                                <th class="col-md-2 col-lg-2">Introduction</th>
+                                <th class="col-md-2 col-lg-2">Permission</th>
+                                <th class="col-md-1 col-lg-1">Version</th>
+                                <th class="col-md-1 col-lg-1">Verification Status</th>
+                                <th class="col-md-1 col-lg-1">Remove</th>
+                            </tr>
+
+                            <tr>
+                                <td>2016-06-12</td>
+                                <td><img src="../../dist/img/line.png" alt="" style="width:50%"></td>
+                                <td><a href="/developer/show_app_detail">Line</a></td>
+                                <td name="file_intro_col">Line App</td>
+                                <td name=""><font style="color:#337ab7">public</font></td>
+                                <td name="version">6.5.1</td>
+                                <td>
+                                    <font style="color:green">Approved</font>
+                                    <font style="display:block;font-size:14px">2016-08-17 17:00:00</font>
+                                </td>
+                                <td style="cursor:pointer"><img src="../../dist/img/trash_can.png" alt="" style="width:30%"></td>
+                            </tr>
+
+                            <tr>
+                                <td>2016-06-11</td>
+                                <td><img src="../../dist/img/skype.png" alt="" style="width:50%"></td>
+                                <td><a href="#">Skype</a></td>
+                                <td name="file_intro_col">Skype App</td>
+                                <td name=""><font style="color:#F0677C">private</font></td>
+                                <td name="version">6.20</td>
+                                <td><font style="color:#d2590a">Pending</font></td>
+                                <td style="cursor:pointer"><img src="../../dist/img/trash_can.png" alt="" style="width:30%"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>        
+            </div>
+        </div>
+    </div>
+    <!-- page content -->
+
+    <%- include('../_layout/developer_footer'); %>
+
+    <script type="text/javascript">
+        var margin_l = 20;
+        $('#app_use_block').css({
+            'margin-right': margin_l + 'px'
+        });
+        var upload_block_width = $("#auth_app_block").width() + margin_l + 30;
+        console.log(upload_block_width);
+        $('#auth_app_block').css({
+            'width': upload_block_width + 'px'
+        });
+    </script>

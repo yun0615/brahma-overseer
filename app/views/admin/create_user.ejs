@@ -1,0 +1,66 @@
+<%- include('../_layout/admin_header'); %>
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3></h3>
+              </div>
+
+              <div class="title_right">
+
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+            
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Create New User</h2>
+                        </div>
+                        <div class="x_content">
+                            <form action="/admin/create_user" class="white" method="post" >
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-12 control-label">username</label>
+                                    <div class="col-sm-10"><input type="text" name='username' placeholder="username" class="form-control" id="username" /></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-12 control-label ">password</label>
+                                    <div class="col-sm-10"><input type="password" name='password' placeholder="password" class="form-control" id="password" /></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-12 control-label">email</label>
+                                    <div class="col-sm-10"><input type="text" name='email' placeholder="email" class="form-control" id="email" /></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-xs-12 control-label">device type</label>
+                                    <div class="col-sm-10">                      
+                                        <select name="device_type" class="form-control" id="">
+                                            <% Object.keys(device_type).forEach(function(key){ %>
+                                                <option value="<%=key%>"><%=key%></option>
+                                            <% })  %>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 center">
+                                    <button type="submit" class="btn btn-info">Submit</button>
+                                    <a href="/admin/show_user" class="btn btn-default" style="margin-left:10px">Back</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+              </div>           
+            </div>
+        </div>
+    </div>
+    <!-- page content -->
+
+<%- include('../_layout/admin_footer'); %>
+
+<script>
+$(".x_panel").css("overflow-y","hidden");
+</script>

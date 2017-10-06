@@ -1,0 +1,7 @@
+OVERSEER_HOME="/root/brahma/brahma-overseer"
+SERVER_HOME="/root/brahma/brahma-server"
+OVERSEER_PORT="3389"
+SERVER_PORT="8080"
+VM_HOME="/root/brahma/vm"
+IMG_HOME="/root/brahma/img"
+PM2="/root/nvm/versions/node/v6.10.0/lib/node_modules/pm2/bin/pm2"

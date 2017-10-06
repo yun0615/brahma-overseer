@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ITRI Brahma</title>
+    
+    <%- include('_layout/link/admin_link_css'); %>
+
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+	
+	<!-- High Chart -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script type="text/javascript" src="http://uniapp.itri.org.tw:19999/dashboard.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- dataTables -->
+    <script src="/lib/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="/lib/datatables/media/js/dataTables.bootstrap.min.js"></script>
+    <script src="/lib/datatables/media/js/dataTables.responsive.js"></script>
+		
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
+
+    <!-- jQuery cookie -->
+    <script src="/js/plugin/jquery.cookie.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/lib/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- mCustomScrollbar -->
+    <script src="/lib/malihu-custom-scrollbar/jquery.mCustomScrollbar.js"></script>
+
+    <!-- jquery.switchButton -->
+    <script src="/lib/jquery-switchButton/jquery.switchButton.js"></script>
+    
+    <!-- jquery.confirm  -->
+    <script src="/lib/jquery-confirm/js/jquery-confirm.js"></script>
+
+    <!-- bootstrap-select -->
+    <script src="/lib/bootstrap-select/dist/js/bootstrap-select.js"></script> 
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/part/myFunction.js"></script>
+    <script src="/js/part/js.header.js"></script> 
+    <script src="/js/part/utility.js"></script>    
+
+      
+
+</head>
+
+<body>
+    
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-custom navbar-static-top" role="navigation" style="margin-bottom: 0">
+           <!--header start-->
+            <div class="navbar-header">
+                <button type="button" class="pull-left navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/admin">ITRI Virtual Mobile Platform - Admin</a>
+            </div>
+             <!--  ////////////////////////////-->
+
+
+            <div class="dropdown" style="float:right;">
+                <div class="dropbtn"><i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i></div>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#" id="changePswBtn"><i class="fa fa-pencil fa-fw"></i> &nbsp;change password</a>
+                    <a href="#" id="logoutBtn"><i class="fa fa-sign-out fa-fw"></i> &nbsp;Logout</a>
+                </div>
+            </div>
+
+            <!-- End of header -->
+
+
+
+            <!-- Left bar start -->
+            <div class="navbar-default sidebar" role="navigation" >
+                <div class="sidebar-nav navbar-collapse collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                        </li>
+
+                        <!-- left bar fucntion start-->
+                        <li>
+                            <a href="/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#" id="monitor_page"><i class="glyphicon glyphicon-scale"></i> Monitor<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="/admin/monitor_cpu_detail">CPU</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/monitor_memory_detail">Memory</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/monitor_network_detail">Network</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" id="server_page"><i class="glyphicon glyphicon-hdd"></i> Server<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="/admin/vmi_overseer_detail">Brahma Authentication</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/vmi_server_detail">Brahma Server</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/vmi_server_setting">Setting</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" id="instance_page"><i class="glyphicon glyphicon-phone"></i> Android Instance<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="/admin/vm"> Virtual Machine</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/arm"> ARM Cluster</a>
+                                </li>
+
+                            </ul>
+                        </li>
+<!--
+                        <li>
+                            <a href="/admin/vm"><i class="fa fa-dashboard fa-fw"></i> Virtual Machine</a>
+                        </li>
+                        <li>
+                            <a href="/admin/arm"><i class="fa fa-dashboard fa-fw"></i> ARM Cluster</a>
+                        </li>
+-->
+                        <li>
+                            <a href="/admin/show_user"><i class="glyphicon glyphicon-user"></i> User</a>
+                        </li>
+                        <li>
+                            <a href="/admin/show_log"><i class="glyphicon glyphicon-search"></i> Log</a>   
+                        </li>
+                        <li>
+                            <a href="/admin/app_list"><i class="fa fa-th-large"></i> App List</a>
+                        </li>
+                        
+                        <!-- end of left bar function-->
+                    </ul>
+                </div>
+            </div>
+            <!-- End of left bar -->
+        </nav>
+    </div>  
+
+        <!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">machine</h1>
+                </div>
+            </div>
+	
+			<div class="row main_block">
+				<div class="row">
+					<div class="col-md-offset-0 col-lg-offset-0 col-md-12 col-lg-12 col-sm-10 col-xs-10 tableArea" style="margin-top:20px">		
+						<table class="table" id="dataTables">
+                            <thead>
+                                <tr class="tg">
+                                    <th>name</th>
+                                    <th>status</th>
+                                </tr>
+                            </thead>    
+                                <% var count = 1 ; %>
+                            <tbody>
+                                <% data.forEach(function(data){ %>
+                                    <tr>
+                                    <% if(data.machine != ""){ %>
+                                        <td><%=data.machine%></td>
+                                    <% }%>
+                                    <% if(data.status == "true"){ %>
+                                       <td style="color:#10e814">connect</td>
+                                    <% }else if(data.status == "false"){ %>
+                                       <td style="color:#fdafaf">idle</td>
+                                    <% }%>
+                                    </tr>
+                                <%  }); %>
+                            </tbody>
+                        </table>
+
+					</div>
+				</div>
+			</div>
+        </div>
+        <!-- End of Content -->
+
+	</div>
+	<!-- end of wrapper -->
+	
+	<!-- jQuery -->
+
+	<%- include('_layout/admin_footer'); %>
+
+<script>
+
+</script>

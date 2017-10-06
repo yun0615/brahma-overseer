@@ -1,0 +1,62 @@
+<%- include('../_layout/developer_header'); %>
+
+
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Meeting Room </h3>
+              </div>
+
+              <div class="title_right">
+
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <% if(data.length !== 0){ %>
+                    <% data.forEach(function(data){ %>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <%=data.meetingID%>
+                            </div>
+                            <div class="panel-body">
+                                <p>
+                                    <%=data.meetingName%><br>
+                                    <%=data.startDate%> - <%=data.endDate%>
+                                </p>
+                            </div>
+                            <a href="/developer/show_room_detail/<%=data.meetingID%>">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <% }); %>
+                <% }else{ %>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Message</h2>
+                            </div>
+                            <div class="x_content">
+                                <p class="white">Hi, You don't have to manage the meeting temporarily</p>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+
+            </div>
+
+        </div>
+    </div>
+
+<%- include('../_layout/developer_footer'); %>
+
+

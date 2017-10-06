@@ -1,0 +1,208 @@
+<%- include('../_layout/admin_header'); %>
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>Virtual Machine</h3>
+                </div>
+                <div class="title_right">
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <div id="dialog" title="Assign User">
+                    <form action="/admin/assign_user" method="post" style="padding:20px">
+                        <div class="row">
+                            <select name="select_user" class="form-control">
+                                <% users_data.forEach(function(data){ %>
+                                       
+                                    <option value="<%=data.username%>"><%=data.username%></option>
+                                      
+                                <% })  %>  
+                            </select>
+                            <input type="hidden" name="vm_number" >
+                        </div>
+                        <div class="row" style="margin-top:20px">
+                            <input type="submit" class="btn btn-default " value="Submit">
+                            <a href="" onclick="javascript:$('#dialog').dialog('close')" style="margin-left:20px" class="btn btn-default">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <a href="/admin/create_vm" class="btn btn-primary"><span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> Create</a>
+                <a href="#" id="remove_vm" class="btn btn-danger">Delete</a>
+                <a href="#" id="assign_user" class="btn btn-success"><span class="glyphicon glyphicon-user" aria-hidden="true"> Assign</a>
+                <span class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        More
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="#" id="start_vm">Start</a></li>
+                        <li><a href="#" id="shutdown_vm">Shutdown</a></li>
+                        <li><a href="#" id="remove_user">Remove Assign</a></li>
+                        <li><a href="#" id="assign_user">Assign User</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Open Console</a></li>
+                    </ul>
+                </span>
+            </div>
+
+            <div class="row" style="margin-top:20px">
+                <div class="alert alert-warning col-md-offset-2 col-md-8" style="font-size:18px;text-align:center"><a href="" style="color:#a94442">Click the VM to operate..</a></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_content">
+                            <table class="table" style="width:100%;font-size:18px;">
+                                <thead>
+                                    <tr>
+                                        <th class="col-md-1 col-lg-1 col-sm-2 col-xs-2">VM_ID</th>
+                                        <th class="col-md-1 col-lg-1">IP Address</th>
+                                        <th class="col-md-2 col-lg-2">MAC Address</th>
+                                        <th class="col-md-1 col-lg-1">Memory</th>
+                                        <th class="col-md-1 col-lg-1 col-sm-1 col-xs-1">Images</th>
+                                        <th class="col-md-1 col-lg-1">User</th>
+                                        <th class="col-md-1 col-lg-1">Status</th>
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+                                    <% all_vm_data.forEach(function(data){
+                                             var number =  data.VM_ID.split("_")[1] ;
+                                     %>
+                                        <tr id="vm_data_<%=number%>">
+                                             <td style="cursor:pointer"><a href="/admin/show_vm_detail"><%=data.VM_ID%></a></td>       
+                                             <td><%=data.IP%></td>
+                                             <td><%=data.MAC%></td>
+                                             <td>1G</td>
+                                             <td>androidx86-0123.img</td>
+                                             <td><%=data.User%></td>
+                                             
+                                                <% if(data.Status == "Running") { %>
+                                                    <td style="color:blue;cursor:pointer"><img src="../../dist/img/status_run.png" alt="" style="width:15%"> Running</td>
+                                                <% }else { %>
+                                                    <td style="color:blue;cursor:pointer"><img src="../../dist/img/status_stop.png" alt="" style="width:15%"> Stop</td>
+                                                <% } %>
+                                        </tr>
+                                    <%  }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- page content -->    
+       
+
+
+   
+	<!-- jQuery -->
+    <script>
+        var vm = null ;
+        $("tr[id^=vm_data]").click(function() {
+            $("tr[id^=vm_data]").css({
+                'background-color': 'white'
+            });
+            var num = $(this).attr('id').split('vm_data_')[1]; //get the clicked data
+            $("#vm_data_" + num).css({
+                'background-color': '#FFFF77'
+            });
+
+            vm = num ;
+            // $("#dialog").attr('title','VM_'+num+" - assign user") ;
+            console.log(vm) ;
+        });
+
+
+
+        //assign user
+          $( function() {
+                $( "#dialog" ).dialog({
+                  autoOpen: false,
+                  show: {
+                    effect: "blind",
+                    duration: 200
+                  },
+                  hide: {
+                    
+                    duration: 200
+                  }
+                });
+                
+
+                $( "#assign_user" ).on( "click", function() {
+                  if(vm == null)
+                     alert("No Select VM") ;
+                  else 
+                  {
+
+                    $("#dialog").dialog({'title':'VM_'+vm+" - assign user"});
+                     $("[name=vm_number]").val(vm) ;                    
+                     $( "#dialog" ).dialog( "open" );
+                  }
+         
+
+                });
+
+
+
+
+          } );
+
+          //unassign user
+          $("#remove_user").click(function(){
+
+               if(vm == null)
+                  alert("No Select VM") ;
+               else
+                  location.href = "/admin/remove_assign/"+vm ;
+
+
+          });
+
+          //delete vm
+          $("#remove_vm").click(function(){
+
+               if(vm == null)
+                  alert("No Select VM") ;
+               else
+                  location.href = "/admin/remove_vm/"+vm ;
+
+
+          });
+
+
+          //shutdown vm
+          $("#shutdown_vm").click(function(){
+
+               if(vm == null)
+                  alert("No Select VM") ;
+               else
+                  location.href = "/admin/shutdown_vm/"+vm ;
+          });
+
+          //start vm
+          $("#start_vm").click(function(){
+
+               if(vm == null)
+                  alert("No Select VM") ;
+               else
+                  location.href = "/admin/start_vm/"+vm ;
+          });
+
+    </script>
+<%- include('../_layout/admin_footer'); %>
+
+

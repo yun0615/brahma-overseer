@@ -1,0 +1,12 @@
+
+    <% for(var i=0; i<6; i++){ %>
+        <div class="block">
+            <div class="icon-block">
+                <img src="../img/app/game<%= i+1 %>.png">
+            </div>
+            <div class="text-block">
+                <div class="title"><span><%=data.appName%><%= i+1 %></span></div>
+                <div class="message"><span><%=data.className%><%= i+1 %></span></div>
+            </div>
+        </div>
+    <% } %>

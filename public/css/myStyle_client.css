@@ -1,0 +1,74 @@
+body{
+	background:url('../img/background/blur_background2.jpg') no-repeat fixed center;
+	background-size:100% 100%;
+}
+
+a{
+	color:#fff;
+}
+
+a:focus,a:hover{
+	color:#709faf;
+}
+
+/*============================*/
+/*         page-header        */
+/*============================*/
+h1.page-header{
+	color:#fff;
+}
+
+
+/*============================*/
+/*         main_block         */
+/*============================*/
+div.main_block{
+	padding:10px 0px;
+}
+
+
+/*============================*/
+/*         userInfoBox        */
+/*============================*/
+table.userInfoBox{
+	padding:10px;
+}
+
+table.userInfoBox tr{
+	height:50px;
+}
+
+table.userInfoBox tr td{
+	color:#fff;
+}
+
+table.userInfoBox tr td:nth-child(odd){
+    font-size: 18px;
+    color: #bad2de;
+    font-weight: 600;
+	line-height:50px;
+}
+
+table.userInfoBox tr td:nth-child(even){
+    font-size: 18px;
+	line-height:50px;
+}
+
+table.userInfoBox tr td.green{
+    color: #10e814;
+}
+table.userInfoBox tr td.red{
+	color: #fdafaf;
+}
+
+
+@media screen and (max-width: 765px){
+	table.userInfoBox tr td:nth-child(odd){
+		font-size: 16px;
+	}
+
+	table.userInfoBox tr td:nth-child(even){
+		font-size: 16px;
+	}
+	
+}

@@ -1,0 +1,274 @@
+<%- include('../_layout/admin_header'); %>
+
+		<!-- Content start -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Application - Upload</h1>
+                </div>
+            </div>
+            <div class="row">
+                <a href="#" class="btn btn-default col-md-offset-10 col-lg-offset-10">Submit</a>
+            </div>
+
+            <!-- Upload Block -->
+            <div class="row" style="margin-top:20px">
+                <div class="col-md-11 col-lg-11" id="upload_block" style="border:1px solid black;border-radius:5px;min-height:200px;padding-bottom:20px">
+                    <div>
+                        <h2>Upload</h2>
+                        <table style="font-size:18px;width:60%" id="table_upload">
+                            <tr>
+                                <td class="col-md-1 col-lg-1">Icon：</td>
+                                <td class="col-md-1 col-lg-1"><input type="file"></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-1 col-lg-1">Name：</td>
+                                <td class="col-md-1 col-lg-1"><input type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-1 col-lg-1">Introduction：</td>
+                                <td class="col-md-2 col-lg-2"><textarea name="" id="" style="width:100%;height:100px"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-1 col-lg-1">Version：</td>
+                                <td class="col-md-1 col-lg-1"><input type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-1 col-lg-1">Apk file：</td>
+                                <td class="col-md-1 col-lg-1"><input type="file"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:20px;margin-bottom:20px">
+
+                <!-- User Authorize Block -->
+                <div class="col-md-5 col-lg-5" id="user_block" style="border:1px solid black;border-radius:5px;min-height:400px">
+                    <div>
+                        <h2>Authorize</h2>
+                        <table style="font-size:18px;width:100%">
+                            <tr>
+                                <td>Assign Objects：</td>
+                                <td colspan="2">
+                                    <input type="radio" name="assign_object" value="depart" checked="true"> Department
+                                    <input type="radio" name="assign_object" style="margin-left:5px" value="user"> User
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Auth_Type：</td>
+                                <td colspan="2">
+                                    <input type="radio" name="auth_type" value="public" checked="true"> public
+                                    <input type="radio" name="auth_type" style="margin-left:5px" value="private"> private
+                                </td>
+                            </tr>
+                            <tr id="select_user_tr" style="padding-top:20px">
+                                <td class="col-md-4 col-lg-4">
+                                    <font>User</font><br />
+                                    <ul type="none" style="padding:10px;border:1px solid black">
+                                        <li id="user_2">Proces2</li>
+                                        <li id="user_3">Pinky</li>
+                                        <li id="user_5">test2</li>
+                                    </ul>
+                                </td>
+                                <td class="col-md-1 col-lg-1">
+                                    <a class="btn btn-default"> > </a><br />
+                                    <a class="btn btn-default"> < </a>
+                                </td>
+                                <td class="col-md-5 col-lg-5">
+                                    <font>Permit User</font><br />
+                                    <ul type="none" style="padding:10px;border:1px solid black">
+                                        <li id="user_1">Proces</li>
+                                        <li id="user_4">test</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr id="select_depart_tr">
+                                <td class="col-md-6 col-lg-6">
+                                    <font>Department</font><br />
+                                    <ul type="none" style="padding:10px;border:1px solid black;font-size:14px">
+                                        <li id="depart_1">Human Resources Department</li>
+                                        <li id="depart_2">General Affairs Department</li>
+                                        <li id="depart_3">Service Department</li>
+                                    </ul>
+                                </td>
+                                <td class="col-md-1 col-lg-1">
+                                    <a class="btn btn-default"> > </a><br />
+                                    <a class="btn btn-default"> < </a>
+                                </td>
+                                <td class="col-md-5 col-lg-5" style="padding-top:20px">
+                                    <font>Permit Department</font><br />
+                                    <ul type="none" style="padding:10px;border:1px solid black;font-size:14px">
+                                        <li id="depart_4">Research Deparment</li>
+                                        <li id="depart_5">General Accounting Department</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Virtual Machine assign block -->
+                <div class="col-md-6 col-lg-6" id="vm_block" style="border:1px solid black;border-radius:5px;min-height:400px">
+                    <div>
+                        <h2>Virtual Machine</h2>
+                    </div>
+                    <table style="font-size:18px;width:100%">
+                        <tr>
+                            <td>Install at：</td>
+                            <td colspan="2">
+                                <input type="radio" name="img_auth_type" value="public" checked="true"> all
+                                <input type="radio" name="img_auth_type" style="margin-left:5px" value="private"> specific
+                            </td>
+                        </tr>
+                        <tr id="select_img_tr">
+                            <td class="col-md-4 col-lg-4">
+                                <font>Images Group</font><br />
+                                <ul type="none" style="padding:10px;border:1px solid black">
+                                    <li id="img_2">android_x86_64.img</li>
+                                    <li id="img_3">android_x86_5.img</li>
+                                    <li id="img_4">android_x86_64_5.img</li>
+                                </ul>
+                            </td>
+                            <td class="col-md-1 col-lg-1">
+                                <a class="btn btn-default"> > </a><br />
+                                <a class="btn btn-default"> < </a>
+                            </td>
+                            <td class="col-md-5 col-lg-5">
+                                <font>Permit Images Group</font><br />
+                                <ul type="none" style="padding:10px;border:1px solid black">
+                                    <li id="img_1">android_x86.img</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+		<!-- End of Content -->
+
+    </div>
+    <!-- end of wrapper -->
+
+   
+
+	<!-- jQuery -->
+    <script type="text/javascript">
+       
+
+        var margin_l = 20;
+        $('#user_block').css({
+            'margin-right': margin_l + 'px'
+        });
+        var upload_block_width = $("#upload_block").width() + margin_l + 30;
+        console.log(upload_block_width);
+        $('#upload_block').css({
+            'width': upload_block_width + 'px'
+        });
+
+        // user select view
+        $("li[id^=user]").click(function() {
+            var choice = $(this).attr('id').split('user_')[1]; //get the clicked data ;
+            console.log(choice);
+            $("li[id^=user]").css({
+                'background-color': 'white',
+                'color': 'black'
+            });
+            $(this).css({
+                'background-color': "#6898d4",
+                'color': 'white'
+            });
+        });
+
+        // department select view
+        $("li[id^=depart]").click(function() {
+            var choice = $(this).attr('id').split('depart_')[1]; //get the clicked data ;
+            console.log(choice);
+            $("li[id^=depart]").css({
+                'background-color': 'white',
+                'color': 'black'
+            });
+            $(this).css({
+                'background-color': "#6898d4",
+                'color': 'white'
+            });
+        });
+
+        // images select view
+        $("li[id^=img]").click(function() {
+            var choice = $(this).attr('id').split('img_')[1]; //get the clicked data ;
+            console.log(choice);
+            $("li[id^=img]").css({
+                'background-color': 'white',
+                'color': 'black'
+            });
+            $(this).css({
+                'background-color': "#e25050",
+                'color': 'white'
+            });
+        });
+
+        var object = "depart";
+        //object 
+        $('[name=assign_object]').change(function() {
+            object = $(this).val();
+            $("#select_user_tr").hide();
+            $("#select_depart_tr").hide();
+            $("[name=auth_type][value=public]").prop('checked', 'true');
+        });
+
+        // user auth type
+        $('[name=auth_type]').change(function() {
+
+            console.log(object);
+            if (object == "depart") //選擇指派部門
+            {
+                switch ($(this).val()) {
+                    case "public":
+                        $("#select_depart_tr").hide();
+                        break;
+                    case "private":
+                        $("#select_depart_tr").show();
+
+                        break;
+                }
+            } else //選擇指派使用者
+            {
+                console.log($(this).val());
+                switch ($(this).val()) {
+                    case "public":
+                        $("#select_user_tr").hide();
+                        break;
+                    case "private":
+                        $("#select_user_tr").show();
+
+                        break;
+                }
+            }
+
+
+        });
+        $("#select_depart_tr").hide();
+        $("#select_user_tr").hide();
+
+        //images auth type
+
+        $('[name=img_auth_type]').change(function() {
+            switch ($(this).val()) {
+                case "public":
+                    $("#select_img_tr").hide();
+                    break;
+                case "private":
+                    $("#select_img_tr").show();
+
+                    break;
+            }
+        });
+
+        $('[name=img_auth_type]').change();
+        $('#select_img_tr').hide();
+    </script>
+
+<%- include('../_layout/admin_footer'); %>
+

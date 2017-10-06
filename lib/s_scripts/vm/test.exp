@@ -1,0 +1,32 @@
+#!/usr/bin/expect
+#### Writen by Tails.Chi 2774 ####
+#### Basci Setting ###
+set login_ip 127.0.0.1
+set username proces
+set pwd proces123
+set send_slow {1 .01}
+#######################
+
+spawn ssh $username@$login_ip
+
+set tip "proces"
+set file "qemu_run_vm.sh"
+set timeout 10
+expect {
+  -ex "(yes/no)?" {send -s "yes\r"; exp_continue}
+  "password:"     {send -s "$pwd\r"; exp_continue}
+  "No route to host"      {exit; exp_continue}
+  timeout         {send_user "connect fail\r"; exit}
+  $tip { send -s "screen -s bash $file\r"}
+
+
+}
+
+expect {
+  "1"     {send -s "\r"}
+  timeout         {send_user "connect fail\r"; exit}
+}
+expect {
+  $tip     {send -s "\r"}
+  timeout         {send_user "connect fail\r"; exit}
+}
